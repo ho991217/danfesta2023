@@ -3,6 +3,7 @@
    "version": "0.1.0",
    "private": true,
    "dependencies": {
+      "@types/recoil": "^0.0.9",
       "@types/styled-components": "^5.1.26",
       "axios": "^1.3.6",
       "framer-motion": "^10.12.4",

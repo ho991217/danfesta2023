@@ -6,9 +6,9 @@ function Router() {
    return (
       <BrowserRouter>
          <Routes>
-            <Modal />
             <Route path="/" element={<Home />} />
          </Routes>
+         <Modal />
       </BrowserRouter>
    );
 }

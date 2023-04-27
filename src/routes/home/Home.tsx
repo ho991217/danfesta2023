@@ -1,5 +1,17 @@
+import { createPortal } from "react-dom";
+import { useModal } from "../../hooks/UseModal";
+
 function Home() {
-   return <div>h</div>;
+   const { openModal } = useModal();
+   return (
+      <div>
+         <button
+            onClick={() => openModal({ title: "test", body: <div>test</div> })}
+         >
+            모달
+         </button>
+      </div>
+   );
 }
 
 export default Home;
