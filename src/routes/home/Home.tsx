@@ -1,5 +1,4 @@
-import { createPortal } from "react-dom";
-import { useModal } from "../../hooks/UseModal";
+import { useModal } from "hooks/UseModal";
 
 function Home() {
    const { openModal } = useModal();

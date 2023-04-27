@@ -1,18 +1,11 @@
 import { useSetRecoilState } from "recoil";
 import { ModalAtom, defaultModal } from "../recoil/atoms/ModalAtom";
-
-interface ModalProps {
-   title: string;
-   body: string | React.ReactElement;
-   declineText?: string;
-   acceptText?: string;
-}
+import { Modal as ModalProps } from "../@types/modal.interface";
 
 export const useModal = () => {
    const setModal = useSetRecoilState(ModalAtom);
 
-   const openModal = ({ title, body }: ModalProps) => {
-      console.log("openModal");
+   const openModal = ({ title, body }: Omit<ModalProps, "isOpen">) => {
       setModal((prev) => ({
          ...prev,
          isOpen: true,
