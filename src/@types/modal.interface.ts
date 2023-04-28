@@ -5,4 +5,5 @@ export interface Modal {
    declineText?: string;
    acceptText?: string;
    onAccept?: () => void;
+   onDecline?: () => void;
 }

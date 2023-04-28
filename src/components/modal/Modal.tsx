@@ -6,11 +6,27 @@ import { useModal } from "hooks/UseModal";
 import Button from "components/button/Button";
 import { theme } from "assets/styles/theme";
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 
 function Modal() {
-   const { isOpen, title, body, onAccept, declineText, acceptText } =
+   const { isOpen, title, body, onAccept, onDecline, declineText, acceptText } =
       useRecoilValue(ModalAtom);
    const { closeModal } = useModal();
+
+   useEffect(() => {
+      const body = document.querySelector("body");
+      const meta = document.querySelector("meta[name=theme-color]");
+
+      if (!body || !meta) return;
+
+      if (isOpen) {
+         body.style.overflow = "hidden";
+         meta.setAttribute("content", "#797979");
+      } else {
+         body.style.overflow = "auto";
+         meta.setAttribute("content", "#f4f4f4");
+      }
+   }, [isOpen]);
 
    return (
       <AnimatePresence>
@@ -23,7 +39,9 @@ function Modal() {
                   <ModalComponents.ButtonBox>
                      {acceptText && (
                         <Button
-                           onClick={closeModal}
+                           onClick={() => {
+                              onAccept?.();
+                           }}
                            color={theme.color.primary}
                            textColor={theme.color.white}
                         >
@@ -32,7 +50,9 @@ function Modal() {
                      )}
                      {declineText && (
                         <Button
-                           onClick={closeModal}
+                           onClick={() => {
+                              onDecline?.();
+                           }}
                            color={theme.color.gray100}
                            textColor={theme.color.gray900}
                         >

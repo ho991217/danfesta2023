@@ -30,8 +30,8 @@ const Container = styled(motion.div).attrs({
       damping: 20,
    },
 })`
-   position: absolute;
-   bottom: 0px;
+   position: fixed;
+   bottom: 0;
    left: 0;
    width: 100%;
    background-color: #fff;

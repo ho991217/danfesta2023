@@ -5,12 +5,11 @@ import { Modal as ModalProps } from "../@types/modal.interface";
 export const useModal = () => {
    const setModal = useSetRecoilState(ModalAtom);
 
-   const openModal = ({ title, body }: Omit<ModalProps, "isOpen">) => {
+   const openModal = (props: Omit<ModalProps, "isOpen">) => {
       setModal((prev) => ({
          ...prev,
          isOpen: true,
-         title,
-         body,
+         ...props,
       }));
    };
 

@@ -1,11 +1,15 @@
-import { useModal } from "hooks/UseModal";
+import { useLogin } from "hooks/UseLogin";
 
 function Home() {
-   const { openModal } = useModal();
+   const { authenicate } = useLogin();
    return (
       <div>
          <button
-            onClick={() => openModal({ title: "test", body: <div>test</div> })}
+            onClick={() => {
+               authenicate(() => {
+                  console.log("인증 완");
+               });
+            }}
          >
             모달
          </button>
