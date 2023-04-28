@@ -7,7 +7,7 @@ const Container = styled.div`
 
 const Header = styled.div`
    font-size: 16px;
-   margin-bottom: 27px;
+   margin-bottom: 22px;
 `;
 
 const Body = styled.form`
@@ -16,10 +16,17 @@ const Body = styled.form`
    gap: 8px;
 `;
 
+const ErrorMsg = styled.span`
+   font-size: 12px;
+   margin-top: 4px;
+   color: ${({ theme }) => theme.color.red};
+`;
+
 const LoginComponents = {
    Container,
    Header,
    Body,
+   ErrorMsg,
 };
 
 export default LoginComponents;

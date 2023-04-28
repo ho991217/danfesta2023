@@ -14,6 +14,7 @@ interface LoginProps {
 const Login = forwardRef<HTMLFormElement, LoginProps>((props, ref) => {
    const [studentId, setStudentId] = useState("");
    const [password, setPassword] = useState("");
+   const [error, setError] = useState("");
    const { setLogin } = useLogin();
    const { closeModal } = useModal();
 
@@ -23,7 +24,7 @@ const Login = forwardRef<HTMLFormElement, LoginProps>((props, ref) => {
          if (res.successful) {
             closeModal();
          } else {
-            alert(res.message);
+            setError(res.message);
          }
       });
    };
@@ -54,6 +55,7 @@ const Login = forwardRef<HTMLFormElement, LoginProps>((props, ref) => {
                }}
             />
          </LoginComponents.Body>
+         <LoginComponents.ErrorMsg>{error}</LoginComponents.ErrorMsg>
       </LoginComponents.Container>
    );
 });
