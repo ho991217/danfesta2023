@@ -89,7 +89,7 @@ export const useLogin = () => {
    };
 
    const isAdmin = () => {
-      return user.admin;
+      return user === null ? false : user.admin;
    };
 
    // eslint-disable-next-line consistent-return

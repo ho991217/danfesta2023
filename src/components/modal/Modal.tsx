@@ -7,6 +7,7 @@ import Button from "components/button/Button";
 import { theme } from "assets/styles/theme";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import { Overlay } from "components/Overlay.styled";
 
 function Modal() {
    const { isOpen, title, body, onAccept, onDecline, declineText, acceptText } =
@@ -21,10 +22,8 @@ function Modal() {
 
       if (isOpen) {
          body.style.overflow = "hidden";
-         meta.setAttribute("content", "#797979");
       } else {
          body.style.overflow = "auto";
-         meta.setAttribute("content", "#f4f4f4");
       }
    }, [isOpen]);
 
@@ -32,7 +31,7 @@ function Modal() {
       <AnimatePresence>
          {isOpen && (
             <ModalPortal>
-               <ModalComponents.Overlay onClick={closeModal} />
+               <Overlay onClick={closeModal} />
                <ModalComponents.Container>
                   <ModalComponents.Header>{title}</ModalComponents.Header>
                   <ModalComponents.Body>{body}</ModalComponents.Body>
