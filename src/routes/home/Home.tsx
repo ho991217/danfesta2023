@@ -1,14 +1,9 @@
-import { useLogin } from "hooks/UseLogin";
-import { useRecoilValue } from "recoil";
 import HomeComponents from "./components/Home.styled";
 import TicketTile from "./components/tiles/TicketTile";
 import LineUpTile from "./components/tiles/LineUpTile";
 import SmallTile, { SmallTileProps } from "./components/tiles/SmallTile";
 import AnimatedIcons from "./components/tiles/SmallTileIcons.styled";
 import HomeBg from "./components/HomeBg";
-import { ModalAtom } from "recoil/atoms/ModalAtom";
-import { TicketAtom } from "recoil/atoms/TicketAtom";
-import { useEffect, useState } from "react";
 
 const SMALL_TILES: SmallTileProps[] = [
    {
@@ -48,8 +43,6 @@ const SMALL_TILES: SmallTileProps[] = [
 ];
 
 function Home() {
-   const { authenicate, setLogout } = useLogin();
-
    return (
       <HomeComponents.Container>
          <HomeBg />
