@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { TicketAtom } from "recoil/atoms/TicketAtom";
 
@@ -16,6 +17,10 @@ const EVETN_ID = [8440];
 
 export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);
+
+   useEffect(() => {
+      // 호출시에 내 티켓이 있는지 확인
+   }, []);
 
    const getTicketInfo = async () => {
       // 서버에서 티켓 정보를 가져온다.

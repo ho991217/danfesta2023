@@ -3,30 +3,51 @@ import styled from "styled-components";
 import { ReactComponent as CrossIcon } from "assets/icons/cross.svg";
 import { ReactComponent as HamburgerIcon } from "assets/icons/hamburger.svg";
 
-const Container = styled.nav<{ home: boolean }>`
+const Container = styled.nav<{ home: boolean; top: boolean }>`
    width: 100%;
    height: 90px;
    margin-bottom: 10px;
-   background-color: ${({ theme, home }) =>
-      home ? "transparent" : theme.color.white};
-   padding: 14px 20px 0 20px;
+   padding: 14px 20px;
    display: flex;
-   align-items: flex-start;
+   align-items: center;
    justify-content: space-between;
-
-   ${({ home, theme }) =>
-      home &&
-      `h1 {
-         color: ${theme.color.white};
-         em {
-            font-style: normal;
-            color: ${theme.color.primary};
+   position: sticky;
+   top: 0;
+   left: 0;
+   z-index: 99;
+   transition: backdrop-filter 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+   ${({ theme, top, home }) => {
+      let result = ``;
+      if (home) {
+         result += `
+         h1 {
+            color: ${theme.color.white};
+            em {
+               font-style: normal;
+               color: ${theme.color.primary};
+            }
          }
+         svg {
+            fill: ${theme.color.white};
+         }
+      `;
+         if (top) {
+            result += `
+               background-color: transparent;
+            `;
+         } else {
+            result += `
+               background-color: rgba(0, 0, 0, 0.75);
+            `;
+         }
+      } else {
+         result += `
+            background-color: ${theme.color.white};
+         `;
       }
-      svg {
-         fill: ${theme.color.white};
-      }
-      `}
+      return result;
+   }}
 `;
 
 const HamburgerButton = styled(HamburgerIcon)``;
@@ -119,7 +140,7 @@ const NavItemLi = styled.li`
    }
 `;
 
-const GlobalNavBarComponents = {
+const GNB = {
    Container,
    HamburgerButton,
    TitleContainer,
@@ -133,4 +154,4 @@ const GlobalNavBarComponents = {
    NavItemLi,
 };
 
-export default GlobalNavBarComponents;
+export default GNB;

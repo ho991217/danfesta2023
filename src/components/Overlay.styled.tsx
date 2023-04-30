@@ -16,6 +16,7 @@ export const Overlay = styled(motion.div).attrs({
    left: 0;
    z-index: 998;
    width: 100vw;
-   height: 100vh;
+   height: 500vh;
    background-color: rgba(0, 0, 0, 0.5);
+   overflow: hidden;
 `;

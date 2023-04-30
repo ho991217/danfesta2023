@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GlobalNavBarComponents from "./GlobalNavBar.styled";
+import GNB from "./GlobalNavBar.styled";
 import { Overlay } from "components/Overlay.styled";
 import { AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -17,7 +17,7 @@ const NAV_HEADER: NavHeader[] = [
    {
       path: "/",
       title: "DANFESTA",
-      empTitle: "THE BLUE",
+      empTitle: "'THE BLUE'",
       subTitle: "2023 단국대학교 대동제 '파랑'",
    },
    {
@@ -38,6 +38,7 @@ function GlobalNavBar() {
    const [navHeader, setNavHeader] = useState<NavHeader>(NAV_HEADER[0]);
    const { authenicate, isLogin, isAdmin, setLogout } = useLogin();
    const location = useLocation();
+   const [isTop, setIsTop] = useState(true);
 
    const closeDrawer = () => {
       setIsDrawerOpen(false);
@@ -51,30 +52,40 @@ function GlobalNavBar() {
       );
    }, [location]);
 
-   return (
-      <GlobalNavBarComponents.Container home={isHome}>
-         <GlobalNavBarComponents.TitleContainer>
-            <GlobalNavBarComponents.Title>
-               {navHeader.title} <em>{navHeader.empTitle}</em>
-            </GlobalNavBarComponents.Title>
-            <GlobalNavBarComponents.SubTitle>
-               {navHeader.subTitle}
-            </GlobalNavBarComponents.SubTitle>
-         </GlobalNavBarComponents.TitleContainer>
+   useEffect(() => {
+      const onScroll = () => {
+         setIsTop(window.scrollY === 0);
+      };
+      window.addEventListener("scroll", onScroll);
+      return () => window.removeEventListener("scroll", onScroll);
+   }, []);
 
-         <GlobalNavBarComponents.HamburgerButton
-            onClick={() => setIsDrawerOpen(true)}
-         />
+   useEffect(() => {
+      if (isDrawerOpen) {
+         document.body.style.overflow = "hidden";
+      } else {
+         document.body.style.overflow = "auto";
+      }
+   }, [isDrawerOpen]);
+
+   return (
+      <GNB.Container home={isHome} top={isTop}>
+         <GNB.TitleContainer>
+            <GNB.Title>
+               {navHeader.title} <em>{navHeader.empTitle}</em>
+            </GNB.Title>
+            <GNB.SubTitle>{navHeader.subTitle}</GNB.SubTitle>
+         </GNB.TitleContainer>
+
+         <GNB.HamburgerButton onClick={() => setIsDrawerOpen(true)} />
          <AnimatePresence>
             {isDrawerOpen && (
                <>
                   <Overlay onClick={closeDrawer} />
-                  <GlobalNavBarComponents.DrawerContainer>
-                     <GlobalNavBarComponents.UserMenuContainer>
-                        <GlobalNavBarComponents.CloseButton
-                           onClick={closeDrawer}
-                        />
-                        <GlobalNavBarComponents.UserMenu>
+                  <GNB.DrawerContainer>
+                     <GNB.UserMenuContainer>
+                        <GNB.CloseButton onClick={closeDrawer} />
+                        <GNB.UserMenu>
                            <Link to="ticket">모바일 티켓</Link>
                            {isLogin() ? (
                               <button
@@ -95,29 +106,29 @@ function GlobalNavBar() {
                                  로그인
                               </button>
                            )}
-                        </GlobalNavBarComponents.UserMenu>
-                     </GlobalNavBarComponents.UserMenuContainer>
-                     <GlobalNavBarComponents.NavItem>
+                        </GNB.UserMenu>
+                     </GNB.UserMenuContainer>
+                     <GNB.NavItem>
                         {NavItems.map(({ name, id, path }) => (
-                           <GlobalNavBarComponents.NavItemLi key={id}>
+                           <GNB.NavItemLi key={id}>
                               <Link to={path} onClick={closeDrawer}>
                                  {name}
                               </Link>
-                           </GlobalNavBarComponents.NavItemLi>
+                           </GNB.NavItemLi>
                         ))}
                         {isAdmin() && (
-                           <GlobalNavBarComponents.NavItemLi>
+                           <GNB.NavItemLi>
                               <Link to="/admin" onClick={closeDrawer}>
                                  관리자 페이지
                               </Link>
-                           </GlobalNavBarComponents.NavItemLi>
+                           </GNB.NavItemLi>
                         )}
-                     </GlobalNavBarComponents.NavItem>
-                  </GlobalNavBarComponents.DrawerContainer>
+                     </GNB.NavItem>
+                  </GNB.DrawerContainer>
                </>
             )}
          </AnimatePresence>
-      </GlobalNavBarComponents.Container>
+      </GNB.Container>
    );
 }
 
