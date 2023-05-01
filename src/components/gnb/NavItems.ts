@@ -1,3 +1,5 @@
+import { IRoutePath } from "routes/IRoutePath";
+
 interface NavItemType {
    id: number;
    name: string;
@@ -8,31 +10,31 @@ export const NavItems: NavItemType[] = [
    {
       id: 1,
       name: "홈",
-      path: "/",
+      path: IRoutePath["HOME"],
    },
    {
       id: 2,
       name: "라인업",
-      path: "/lineup",
+      path: IRoutePath["LINEUP"],
    },
    {
       id: 3,
       name: "티켓팅",
-      path: "/ticketing",
+      path: IRoutePath["TICKETING"],
    },
    {
       id: 4,
       name: "이벤트",
-      path: "/event",
+      path: IRoutePath["EVENTS"],
    },
    {
       id: 5,
       name: "부스 라이브맵",
-      path: "/booth-map",
+      path: IRoutePath["LIVEMAP"],
    },
    {
       id: 6,
       name: "공지사항",
-      path: "/notice",
+      path: IRoutePath["NOTICE"],
    },
 ];
