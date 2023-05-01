@@ -6,6 +6,7 @@ import { useLogin } from "hooks/UseLogin";
 import Ticket from "./ticket/Ticket";
 import TicketPopup from "components/ticket/TicketPopup";
 import GlobalNavBar from "components/gnb/GlobalNavBar";
+import { IRoutePath } from "./IRoutePath";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -14,10 +15,18 @@ function Router() {
       <BrowserRouter>
          <GlobalNavBar />
          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/ticket" element={<Ticket />} />
+            <Route path={IRoutePath["HOME"]} element={<Home />} />
+            <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
+            <Route path={IRoutePath["LINEUP"]} element={<div>lineup</div>} />
             <Route
-               path="/admin"
+               path={IRoutePath["TICKETING"]}
+               element={<div>ticketing</div>}
+            />
+            <Route path={IRoutePath["EVENTS"]} element={<div>event</div>} />
+            <Route path={IRoutePath["LIVEMAP"]} element={<div>live map</div>} />
+            <Route path={IRoutePath["NOTICE"]} element={<div>notie</div>} />
+            <Route
+               path={IRoutePath["ADMIN"]}
                element={
                   isAdmin() ? (
                      <Admin />
