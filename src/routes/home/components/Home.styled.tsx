@@ -13,7 +13,6 @@ const TilesGrid = styled.div`
    gap: 13px;
    grid-template-areas:
       "a a"
-      "a a"
       "b c"
       "d e";
 `;

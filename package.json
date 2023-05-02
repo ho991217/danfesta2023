@@ -2,6 +2,7 @@
    "name": "danfesta",
    "version": "0.1.0",
    "private": true,
+   "homepage": ".",
    "dependencies": {
       "@types/react-qr-reader": "^2.1.4",
       "@types/recoil": "^0.0.9",
@@ -10,6 +11,7 @@
       "framer-motion": "^10.12.4",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
+      "react-hook-geolocation": "^1.1.0",
       "react-icons": "^4.8.0",
       "react-kakao-maps-sdk": "^1.1.9",
       "react-qr-code": "^2.0.11",
@@ -55,6 +57,7 @@
       "@types/react": "^18.2.0",
       "@types/react-dom": "^18.2.1",
       "@types/uuid": "^9.0.1",
-      "babel-plugin-styled-components": "^2.1.1"
+      "babel-plugin-styled-components": "^2.1.1",
+      "kakao.maps.d.ts": "^0.1.38"
    }
 }

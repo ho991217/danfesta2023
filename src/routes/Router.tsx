@@ -7,6 +7,10 @@ import Ticket from "./ticket/Ticket";
 import TicketPopup from "components/ticket/TicketPopup";
 import GlobalNavBar from "components/gnb/GlobalNavBar";
 import { IRoutePath } from "./IRoutePath";
+import LiveMap from "./live-map/LiveMap";
+import LineUp from "./line-up/LineUp";
+import LineUpCards from "./line-up/LineUpCards";
+import { ARTISTS } from "components/lineup/Artists";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -17,13 +21,23 @@ function Router() {
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
             <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
-            <Route path={IRoutePath["LINEUP"]} element={<div>lineup</div>} />
+            <Route path={IRoutePath["LINEUP"]} element={<LineUp />}>
+               <Route path="" element={<Navigate to="1" />} />
+               <Route
+                  path="1"
+                  element={<LineUpCards artist={ARTISTS[0]} dir="ltr" />}
+               />
+               <Route
+                  path="2"
+                  element={<LineUpCards artist={ARTISTS[1]} dir="rtl" />}
+               />
+            </Route>
             <Route
                path={IRoutePath["TICKETING"]}
                element={<div>ticketing</div>}
             />
             <Route path={IRoutePath["EVENTS"]} element={<div>event</div>} />
-            <Route path={IRoutePath["LIVEMAP"]} element={<div>live map</div>} />
+            <Route path={IRoutePath["LIVEMAP"]} element={<LiveMap />} />
             <Route path={IRoutePath["NOTICE"]} element={<div>notie</div>} />
             <Route
                path={IRoutePath["ADMIN"]}

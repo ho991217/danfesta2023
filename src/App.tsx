@@ -19,7 +19,7 @@ function App() {
             setUser(user);
          });
       }
-   }, [getAccessToken, getUserInfo, setUser]);
+   }, []);
 
    return (
       <ThemeProvider theme={theme}>

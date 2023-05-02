@@ -6,7 +6,6 @@ import { ReactComponent as HamburgerIcon } from "assets/icons/hamburger.svg";
 const Container = styled.nav<{ home: boolean; top: boolean }>`
    width: 100%;
    height: 90px;
-   margin-bottom: 10px;
    padding: 14px 20px;
    display: flex;
    align-items: center;
