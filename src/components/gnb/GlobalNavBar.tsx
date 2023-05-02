@@ -5,38 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useLogin } from "hooks/UseLogin";
 import { NavItems } from "./NavItems";
-import { IRoutePath } from "routes/IRoutePath";
-
-export interface NavHeader {
-   path: string;
-   title: string;
-   empTitle?: string;
-   subTitle: string;
-}
-
-const NAV_HEADER: NavHeader[] = [
-   {
-      path: IRoutePath["HOME"],
-      title: "DANFESTA",
-      empTitle: "'THE BLUE'",
-      subTitle: "2023 단국대학교 대동제 '파랑'",
-   },
-   {
-      path: IRoutePath["TICKET"],
-      title: "모바일 티켓",
-      subTitle: "모바일 티켓입니다.",
-   },
-   {
-      path: IRoutePath["LIVEMAP"],
-      title: "BOOTH MAP",
-      subTitle: "2023 단페스타 라이브맵"
-   },
-   {
-      path: IRoutePath["ADMIN"],
-      title: "관리자 페이지",
-      subTitle: "담총 화이팅",
-   },
-];
+import { NAV_HEADER, NavHeader } from "./NavHeader";
 
 function GlobalNavBar() {
    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
