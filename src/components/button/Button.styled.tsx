@@ -10,6 +10,10 @@ const Container = styled.button<{
    border: none;
    padding: 12px;
    border-radius: 10px;
+   :disabled {
+      background-color: #efefef;
+      color: #979797;
+   }
 `;
 
 const Text = styled.span`

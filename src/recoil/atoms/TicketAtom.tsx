@@ -3,10 +3,20 @@ import { atom } from "recoil";
 export const TicketAtom = atom({
    key: "ticket",
    default: {
-      id: 0,
-      qrCode: "",
-      valid: false,
       isOpen: false,
-      distributed: false,
+      info: [
+         {
+            id: 0,
+            valid: false,
+            distributed: false,
+            turn: 0,
+         },
+         {
+            id: 0,
+            valid: false,
+            distributed: false,
+            turn: 0,
+         },
+      ],
    },
 });

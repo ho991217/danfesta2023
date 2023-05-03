@@ -1,7 +1,9 @@
 import axios from "axios";
+import { EVENTID } from "eventId";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { TicketAtom } from "recoil/atoms/TicketAtom";
+import { useErrorModal } from "./UseErrorModal";
 
 export interface Verification {
    id: number;
@@ -15,15 +17,71 @@ export interface Verification {
 
 export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);
+   const { openErrorModal } = useErrorModal();
 
    useEffect(() => {
       // 호출시에 내 티켓이 있는지 확인
+      fetchTicketInfo();
    }, []);
 
-   const getTicketInfo = async () => {
-      // 서버에서 티켓 정보를 가져온다.
+   const hasTicket = () => ticket.info[0].id !== 0 || ticket.info[1].id !== 0;
 
-      return "8100";
+   const getTicketInfo = () => {
+      fetchTicketInfo();
+
+      if (hasTicket()) {
+         return ticket.info;
+      }
+   };
+
+   const fetchTicketInfo = async (): Promise<
+      string | [string, string] | null
+   > => {
+      try {
+         const [{ data: day1 }, { data: day2 }] = await axios.all([
+            axios({
+               method: "GET",
+               url: `/ticket/event/${EVENTID["1일차"]}`,
+               headers: {
+                  Authorization: `Bearer ${localStorage.getItem(
+                     "access-token"
+                  )}`,
+               },
+            }),
+            axios({
+               method: "GET",
+               url: `/ticket/event/${EVENTID["2일차"]}`,
+               headers: {
+                  Authorization: `Bearer ${localStorage.getItem(
+                     "access-token"
+                  )}`,
+               },
+            }),
+         ]);
+
+         setTicket((prev) => ({
+            ...prev,
+            info: [
+               {
+                  ...prev.info[0],
+                  id: day1.id,
+                  turn: day1.turn,
+               },
+               {
+                  ...prev.info[1],
+                  id: day2.id,
+                  turn: day2.turn,
+               },
+            ],
+         }));
+      } catch (e) {
+         const {
+            response: { data },
+         } = e as any;
+         openErrorModal(data.message[0]);
+      }
+
+      return null;
    };
 
    const sendVerificationCode = async (ticketId: string) => {
@@ -61,5 +119,6 @@ export const useTicket = () => {
       closeTicket,
       sendVerificationCode,
       isTicketOpen,
+      hasTicket,
    };
 };

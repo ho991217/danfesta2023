@@ -36,11 +36,14 @@ export const useLogin = () => {
    };
 
    const authenicate = (onAuthenticated?: () => void) => {
-      if (!isLogin()) {
-         openLoginModal();
-      } else {
-         onAuthenticated?.();
-      }
+      getUserInfo().then((user) => {
+         if (user) {
+            setUser(user);
+            onAuthenticated?.();
+         } else {
+            openLoginModal();
+         }
+      });
    };
 
    const setAuthHeader = (accessToken: string) => {

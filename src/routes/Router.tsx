@@ -11,6 +11,7 @@ import LiveMap from "./live-map/LiveMap";
 import AnimatedRoutes from "./AnimatedRoutes";
 import QuickdrawBar from "components/quickdraw/QuickdrawBar";
 import Notice from "./notice/Notice";
+import Ticketing from "./ticketing/Ticketing";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -23,10 +24,7 @@ function Router() {
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
             <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
-            <Route
-               path={IRoutePath["TICKETING"]}
-               element={<div>ticketing</div>}
-            />
+            <Route path={IRoutePath["TICKETING"]} element={<Ticketing />} />
             <Route path={IRoutePath["EVENTS"]} element={<div>event</div>} />
             <Route path={IRoutePath["LIVEMAP"]} element={<LiveMap />} />
             <Route path={IRoutePath["NOTICE"]} element={<Notice />} />
