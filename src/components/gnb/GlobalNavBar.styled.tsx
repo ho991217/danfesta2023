@@ -13,7 +13,7 @@ const Container = styled.nav<{ home: boolean; top: boolean }>`
    position: sticky;
    top: 0;
    left: 0;
-   z-index: 99;
+   z-index: 100;
    transition: backdrop-filter 0.2s ease-in-out,
       background-color 0.2s ease-in-out;
    ${({ theme, top, home }) => {

@@ -12,7 +12,15 @@ function LineUp() {
    }, [location.pathname]);
 
    return (
-      <>
+      <div
+         style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "calc(100% - 40px)",
+            margin: "0 auto",
+         }}
+      >
          <Tab
             labels={["1일차", "2일차"]}
             selectedLabel={`${day}일차`}
@@ -26,7 +34,7 @@ function LineUp() {
          />
 
          <Outlet />
-      </>
+      </div>
    );
 }
 

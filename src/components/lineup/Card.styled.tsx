@@ -3,8 +3,9 @@ import BgSrc from "assets/images/card_bg.png";
 
 const Container = styled.div`
    border-radius: 10px;
-   width: calc(100vw - 40px);
-   height: 170px;
+   width: 100%;
+   height: 100%;
+   min-height: 170px;
    background-image: url(${BgSrc});
    background-size: cover;
    background-position: -120%;

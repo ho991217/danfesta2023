@@ -13,8 +13,6 @@ export interface Verification {
    code: string; // sms 인증코드
 }
 
-const EVETN_ID = [8440];
-
 export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);
 
@@ -53,10 +51,15 @@ export const useTicket = () => {
       }));
    };
 
+   const isTicketOpen = () => {
+      return ticket.isOpen;
+   };
+
    return {
       getTicketInfo,
       openTicket,
       closeTicket,
       sendVerificationCode,
+      isTicketOpen,
    };
 };

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const Container = styled.div`
-   width: calc(100vw - 40px);
+   width: 100%;
    height: 40px;
    background-color: ${({ theme }) => theme.color.white};
    border-radius: 10px;

@@ -8,9 +8,9 @@ import styled from "styled-components";
 const Container = styled(Link)`
    grid-area: a;
    border-radius: 10px;
-   box-shadow: 0px 25px 50px 5px rgba(0, 0, 0, 0.2);
    text-decoration: none;
    background-color: ${({ theme }) => theme.color.black};
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `;
 
 function LineUpTile() {

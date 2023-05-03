@@ -9,6 +9,7 @@ import GlobalNavBar from "components/gnb/GlobalNavBar";
 import { IRoutePath } from "./IRoutePath";
 import LiveMap from "./live-map/LiveMap";
 import AnimatedRoutes from "./AnimatedRoutes";
+import QuickdrawBar from "components/quickdraw/QuickdrawBar";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -16,6 +17,7 @@ function Router() {
    return (
       <BrowserRouter>
          <GlobalNavBar />
+         <QuickdrawBar />
          <AnimatedRoutes />
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
