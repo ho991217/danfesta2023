@@ -10,6 +10,7 @@ import { IRoutePath } from "./IRoutePath";
 import LiveMap from "./live-map/LiveMap";
 import AnimatedRoutes from "./AnimatedRoutes";
 import QuickdrawBar from "components/quickdraw/QuickdrawBar";
+import Notice from "./notice/Notice";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -28,7 +29,7 @@ function Router() {
             />
             <Route path={IRoutePath["EVENTS"]} element={<div>event</div>} />
             <Route path={IRoutePath["LIVEMAP"]} element={<LiveMap />} />
-            <Route path={IRoutePath["NOTICE"]} element={<div>notie</div>} />
+            <Route path={IRoutePath["NOTICE"]} element={<Notice />} />
             <Route
                path={IRoutePath["ADMIN"]}
                element={

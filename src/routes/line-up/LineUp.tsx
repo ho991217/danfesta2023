@@ -18,7 +18,7 @@ function LineUp() {
             flexDirection: "column",
             alignItems: "center",
             width: "calc(100% - 40px)",
-            margin: "0 auto",
+            margin: "0 auto 100px auto",
          }}
       >
          <Tab
