@@ -1,7 +1,6 @@
 import Tab from "components/tab/Tab";
-import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 function LineUp() {
    const [day, setDay] = useState("1");
@@ -25,9 +24,8 @@ function LineUp() {
                }
             }}
          />
-         <AnimatePresence>
-            <Outlet />
-         </AnimatePresence>
+
+         <Outlet />
       </>
    );
 }

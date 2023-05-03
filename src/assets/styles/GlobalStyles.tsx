@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
       font-family: 'Noto Sans KR', sans-serif;
       background-color: #f5f5f5;
       overflow-x: hidden;
-
+      max-width: 500px;
+      margin: 0 auto;
    }
 `;

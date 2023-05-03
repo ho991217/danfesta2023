@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./home/Home";
 import Modal from "../components/modal/Modal";
 import Admin from "./admin/Admin";
@@ -8,9 +8,7 @@ import TicketPopup from "components/ticket/TicketPopup";
 import GlobalNavBar from "components/gnb/GlobalNavBar";
 import { IRoutePath } from "./IRoutePath";
 import LiveMap from "./live-map/LiveMap";
-import LineUp from "./line-up/LineUp";
-import LineUpCards from "./line-up/LineUpCards";
-import { ARTISTS } from "components/lineup/Artists";
+import AnimatedRoutes from "./AnimatedRoutes";
 
 function Router() {
    const { isAdmin } = useLogin();
@@ -18,20 +16,10 @@ function Router() {
    return (
       <BrowserRouter>
          <GlobalNavBar />
+         <AnimatedRoutes />
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
             <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
-            <Route path={IRoutePath["LINEUP"]} element={<LineUp />}>
-               <Route path="" element={<Navigate to="1" />} />
-               <Route
-                  path="1"
-                  element={<LineUpCards artist={ARTISTS[0]} dir="ltr" />}
-               />
-               <Route
-                  path="2"
-                  element={<LineUpCards artist={ARTISTS[1]} dir="rtl" />}
-               />
-            </Route>
             <Route
                path={IRoutePath["TICKETING"]}
                element={<div>ticketing</div>}
@@ -49,9 +37,10 @@ function Router() {
                   )
                }
             />
-
+            <Route path={IRoutePath["LINEUP"] + "/*"} element={<></>} />
             <Route path="*" element={<h1>Not Found</h1>} />
          </Routes>
+
          <Modal />
          <TicketPopup />
       </BrowserRouter>

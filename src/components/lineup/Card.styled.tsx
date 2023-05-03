@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import BgSrc from "assets/images/card_bg.png";
-import { motion } from "framer-motion";
 
-const Container = styled(motion.div).attrs({
-
-})`
+const Container = styled.div`
    border-radius: 10px;
    width: calc(100vw - 40px);
    height: 170px;
