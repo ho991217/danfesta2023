@@ -10,7 +10,7 @@ function QuickdrawBar() {
    return (
       <QuickdrawBarComponent.Container
          onClick={() => {
-            openTicket();
+            if (hasTicket()) openTicket();
          }}
       >
          <AnimatePresence>

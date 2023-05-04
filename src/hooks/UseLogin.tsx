@@ -66,6 +66,7 @@ export const useLogin = () => {
          localStorage.setItem("refresh-token", refreshToken);
          setAuthHeader(accessToken);
          setUser(await getUserInfo());
+         window.location.reload();
 
          return { successful: true, message: "" };
       } catch (e) {

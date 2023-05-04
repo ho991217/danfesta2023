@@ -87,7 +87,7 @@ const MotionQrBar = styled(motion(QrBarIcon))`
 `;
 
 function TicketTile() {
-   const { openTicket } = useTicket();
+   const { openTicket, hasTicket } = useTicket();
 
    return (
       <Container>
@@ -95,7 +95,9 @@ function TicketTile() {
             <Title>단페스타 모바일 티켓 시스템</Title>
             <Infos>
                <span>티켓팅 유무</span>
-               <strong>티켓이 있습니다.</strong>
+               <strong>
+                  {hasTicket() ? "티켓이 있습니다." : "티켓이 없습니다."}
+               </strong>
             </Infos>
             <Notice>
                입장시 티켓 확인이 필요합니다. 인증 절차 중<br /> 확인이 불가할

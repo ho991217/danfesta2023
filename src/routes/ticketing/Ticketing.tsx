@@ -10,6 +10,7 @@ import { useLogin } from "hooks/UseLogin";
 import { useErrorModal } from "hooks/UseErrorModal";
 import axios from "axios";
 import { EVENTID } from "eventId";
+import { useModal } from "hooks/UseModal";
 
 function Ticketing() {
    const [selectedLabel, setSelectedLabel] = useState<EVENTID>(
@@ -22,6 +23,7 @@ function Ticketing() {
    const [canSubmit, setCanSubmit] = useState(false);
    const { authenicate } = useLogin();
    const { openErrorModal } = useErrorModal();
+   const { openModal } = useModal();
 
    useEffect(() => {
       authenicate(() => {
@@ -95,7 +97,20 @@ function Ticketing() {
                captchaValue: captchaCode,
             },
          });
-         console.log(data);
+         openModal({
+            title: "신청이 완료되었습니다.",
+            body: (
+               <div>
+                  {`${selectedLabel === EVENTID["1일차"] ? "17" : "18"}일 (${
+                     selectedLabel === EVENTID["1일차"] ? "1" : "2"
+                  }일차) 단국존 티켓 신청이 성공적으로 완료되었습니다. 티켓팅 승인 결과가 등록된 휴대전화번호의 SMS로 전송됩니다.
+            `}
+                  <br />
+                  <br />
+                  티켓팅 번호: <b>{data.turn}</b>번
+               </div>
+            ),
+         });
       } catch (e) {
          const { response } = e as any;
 
@@ -103,6 +118,7 @@ function Ticketing() {
             errorMsg: response.data.message[0],
          });
          fetchCaptcha();
+         setCaptchaCode("");
       }
    };
 

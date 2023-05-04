@@ -4,6 +4,7 @@ import Card from "components/lineup/Card";
 import { Link } from "react-router-dom";
 import { IRoutePath } from "routes/IRoutePath";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const Container = styled(Link)`
    grid-area: a;
@@ -14,14 +15,20 @@ const Container = styled(Link)`
 `;
 
 function LineUpTile() {
+   const [currentLineUp, setCurrentLineUp] = useState(0);
+
+   useEffect(() => {
+      const id = setInterval(() => {
+         setCurrentLineUp((prev) => (prev + 1) % ARTISTS.flat().length);
+      }, 3000);
+      return () => {
+         clearInterval(id);
+      };
+   }, []);
+
    return (
       <Container to={IRoutePath["LINEUP"]}>
-         <Card
-            id={ARTISTS[0][0].id}
-            eventId={EVENTID["1일차"]}
-            name={ARTISTS[0][0].name}
-            image={ARTISTS[0][0].image}
-         />
+         <Card {...ARTISTS.flat()[currentLineUp]} />
       </Container>
    );
 }

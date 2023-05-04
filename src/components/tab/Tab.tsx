@@ -5,13 +5,15 @@ function Tab({
    labels,
    selectedLabel,
    onLabelClick,
+   style,
 }: {
    labels: string[];
    selectedLabel: string;
    onLabelClick: (label: string) => void;
+   style?: React.CSSProperties;
 }) {
    return (
-      <TabComponents.Container>
+      <TabComponents.Container style={style}>
          <LayoutGroup>
             {labels.map((label) => (
                <TabComponents.TabLabel

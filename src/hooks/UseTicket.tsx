@@ -38,50 +38,51 @@ export const useTicket = () => {
       string | [string, string] | null
    > => {
       try {
-         const [{ data: day1 }, { data: day2 }] = await axios.all([
-            axios({
-               method: "GET",
-               url: `/ticket/event/${EVENTID["1일차"]}`,
-               headers: {
-                  Authorization: `Bearer ${localStorage.getItem(
-                     "access-token"
-                  )}`,
-               },
-            }),
-            axios({
-               method: "GET",
-               url: `/ticket/event/${EVENTID["2일차"]}`,
-               headers: {
-                  Authorization: `Bearer ${localStorage.getItem(
-                     "access-token"
-                  )}`,
-               },
-            }),
-         ]);
-
+         const day1 = await fetchTicketDay({ day: EVENTID["1일차"] });
          setTicket((prev) => ({
             ...prev,
             info: [
                {
                   ...prev.info[0],
-                  id: day1.id,
-                  turn: day1.turn,
+                  id: day1.id ?? 0,
+                  turn: day1.turn ?? 0,
                },
                {
                   ...prev.info[1],
-                  id: day2.id,
-                  turn: day2.turn,
                },
             ],
          }));
-      } catch (e) {
-         const {
-            response: { data },
-         } = e as any;
-         openErrorModal(data.message[0]);
-      }
+      } catch (e) {}
+      try {
+         const day2 = await fetchTicketDay({ day: EVENTID["2일차"] });
+         setTicket((prev) => ({
+            ...prev,
+            info: [
+               {
+                  ...prev.info[0],
+               },
+               {
+                  ...prev.info[1],
+                  id: day2.id ?? 0,
+                  turn: day2.turn ?? 0,
+               },
+            ],
+         }));
+      } catch (e) {}
 
       return null;
+   };
+
+   const fetchTicketDay = async ({ day }: { day: EVENTID }) => {
+      const { data } = await axios({
+         method: "GET",
+         url: `/ticket/event/${day}`,
+         headers: {
+            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+         },
+      });
+
+      return data;
    };
 
    const sendVerificationCode = async (ticketId: string) => {

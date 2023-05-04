@@ -20,7 +20,7 @@ interface Lineup {
    [index: number]: Artist[];
 }
 
-export const ARTISTS: Lineup = [
+export const ARTISTS: Artist[][] = [
    [
       {
          id: 1,
