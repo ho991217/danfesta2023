@@ -97,10 +97,16 @@ export const useTicket = () => {
    };
 
    const openTicket = () => {
-      setTicket((prev) => ({
-         ...prev,
-         isOpen: true,
-      }));
+      if (hasTicket()) {
+         setTicket((prev) => ({
+            ...prev,
+            isOpen: true,
+         }));
+      } else {
+         openErrorModal({
+            errorMsg: "티켓이 없습니다.",
+         });
+      }
    };
 
    const closeTicket = () => {

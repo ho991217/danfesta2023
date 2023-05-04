@@ -105,7 +105,11 @@ function TicketTile() {
             </Notice>
          </InfoContainer>
          <ButtonContainer>
-            <QrButton onClick={openTicket}>
+            <QrButton
+               onClick={() => {
+                  openTicket();
+               }}
+            >
                <MotionQrBase />
                <MotionQrBar
                   transition={{
@@ -120,7 +124,7 @@ function TicketTile() {
                   }}
                />
             </QrButton>
-            <span>탭하여 티켓 확인</span>
+            <span>{hasTicket() ? "탭하여 티켓 확인" : "티켓이 없습니다."}</span>
          </ButtonContainer>
       </Container>
    );

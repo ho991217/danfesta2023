@@ -8,11 +8,7 @@ function QuickdrawBar() {
    const { openTicket, isTicketOpen } = useTicket();
 
    return (
-      <QuickdrawBarComponent.Container
-         onClick={() => {
-            if (hasTicket()) openTicket();
-         }}
-      >
+      <QuickdrawBarComponent.Container onClick={openTicket}>
          <AnimatePresence>
             {hasTicket() && !isTicketOpen() && <QuickdrawBarComponent.Ticket />}
          </AnimatePresence>

@@ -11,6 +11,7 @@ import { useErrorModal } from "hooks/UseErrorModal";
 import axios from "axios";
 import { EVENTID } from "eventId";
 import { useModal } from "hooks/UseModal";
+import { useNavigate } from "react-router-dom";
 
 function Ticketing() {
    const [selectedLabel, setSelectedLabel] = useState<EVENTID>(
@@ -24,6 +25,7 @@ function Ticketing() {
    const { authenicate } = useLogin();
    const { openErrorModal } = useErrorModal();
    const { openModal } = useModal();
+   const navigate = useNavigate();
 
    useEffect(() => {
       authenicate(() => {
@@ -110,6 +112,11 @@ function Ticketing() {
                   티켓팅 번호: <b>{data.turn}</b>번
                </div>
             ),
+            declineText: "",
+            acceptText: "확인",
+            onAccept: () => {
+               navigate("/");
+            },
          });
       } catch (e) {
          const { response } = e as any;
