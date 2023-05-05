@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { TicketAtom } from "recoil/atoms/TicketAtom";
 import { useErrorModal } from "./UseErrorModal";
+import { useModal } from "./UseModal";
 
 export interface Verification {
    id: number;
@@ -18,6 +19,7 @@ export interface Verification {
 export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);
    const { openErrorModal } = useErrorModal();
+   const { openModal, closeModal } = useModal();
 
    useEffect(() => {
       // 호출시에 내 티켓이 있는지 확인
@@ -85,15 +87,41 @@ export const useTicket = () => {
       return data;
    };
 
+   const issueTicket = async (ticketId: string) => {
+      try {
+         await axios({
+            method: "POST",
+            url: `/ticket/${ticketId}/permit`,
+         });
+      } catch (e) {
+         openErrorModal({
+            errorMsg: "티켓 발급에 실패했습니다.",
+         });
+      }
+   };
+
    const sendVerificationCode = async (ticketId: string) => {
-      console.log(ticketId);
-      // 서버에 티켓을 발급한다.
       const { data }: { data: Verification } = await axios({
          method: "GET",
          url: `/ticket/${ticketId}`,
       });
 
       return data;
+   };
+
+   const resendVerificationCode = async (ticketId: string) => {
+      try {
+         const { code }: { code: Verification["code"] } = await axios({
+            method: "GET",
+            url: `/ticket/${ticketId}/sms`,
+         });
+
+         return code;
+      } catch (e) {
+         openErrorModal({
+            errorMsg: "인증번호 발송에 실패했습니다.",
+         });
+      }
    };
 
    const openTicket = () => {
@@ -103,8 +131,13 @@ export const useTicket = () => {
             isOpen: true,
          }));
       } else {
-         openErrorModal({
-            errorMsg: "티켓이 없습니다.",
+         openModal({
+            title: "티켓이 없습니다",
+            body: "티켓이 없습니다.",
+            declineText: "",
+            onAccept: () => {
+               closeModal();
+            },
          });
       }
    };
@@ -127,5 +160,7 @@ export const useTicket = () => {
       sendVerificationCode,
       isTicketOpen,
       hasTicket,
+      issueTicket,
+      resendVerificationCode,
    };
 };

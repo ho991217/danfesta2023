@@ -61,7 +61,6 @@ function GlobalNavBar() {
                      <GNB.UserMenuContainer>
                         <GNB.CloseButton onClick={closeDrawer} />
                         <GNB.UserMenu>
-                           <Link to="ticket">모바일 티켓</Link>
                            {isLogin() ? (
                               <button
                                  onClick={() => {
