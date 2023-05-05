@@ -52,7 +52,9 @@ const QrReaderContainer = styled.div`
    }
 `;
 
-const TicketInfoContainer = styled.div``;
+const TicketInfoContainer = styled.div`
+   margin-bottom: 10px;
+`;
 
 const AdminComponents = {
    Container,

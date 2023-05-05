@@ -1,18 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { QrReader } from "react-qr-reader";
 import AdminComponents from "./components/Admin.styled";
 import { AiOutlineExpand } from "react-icons/ai";
-import { Verification, useTicket } from "hooks/UseTicket";
+import { useTicket } from "hooks/UseTicket";
 import { useModal } from "hooks/UseModal";
 import Button from "components/button/Button";
 
 function Admin() {
    const [ticketId, setTicketId] = useState("");
-   const { openModal, closeModal } = useModal();
+   const { openModal, closeModal, isOpen } = useModal();
    const { sendVerificationCode, resendVerificationCode, issueTicket } =
       useTicket();
-   const [ticketInfo, setTicketInfo] = useState<Verification | null>(null);
    const [delayScan, setDelayScan] = useState<number | undefined>(500);
+
+   useEffect(() => {
+      if (!isOpen) {
+         setDelayScan(500);
+         setTicketId("");
+      }
+   }, [isOpen]);
 
    const sendCode = (ticketId: string) => {
       openModal({
@@ -21,15 +27,9 @@ function Admin() {
          onAccept: () => {
             issueTicket(ticketId);
             closeModal();
-            setDelayScan(500);
-            setTicketInfo(null);
-            setTicketId("");
          },
          onDecline: () => {
             closeModal();
-            setDelayScan(500);
-            setTicketInfo(null);
-            setTicketId("");
          },
       });
    };
@@ -40,8 +40,45 @@ function Admin() {
          setTicketId(ticket);
          setDelayScan(undefined);
          sendVerificationCode(ticket).then((res) => {
-            closeModal();
-            setTicketInfo(res);
+            openModal({
+               title: "티켓 정보",
+               body: (
+                  <>
+                     <AdminComponents.TicketInfoContainer>
+                        <div>이름: {res.name}</div>
+                        <div>학번: {res.studentId}</div>
+                        <div>학과: {res.major}</div>
+                        <div>예매번호: {res.turn}</div>
+                        <div>
+                           발급 여부: {res.issued ? "발급 됨" : "미발급"}
+                        </div>
+                        {res.code && <div>인증 번호: {res.code}</div>}
+                     </AdminComponents.TicketInfoContainer>
+                     {!res.issued && (
+                        <Button
+                           disabled={res === null || res.issued}
+                           onClick={() => {
+                              resendVerificationCode(ticket);
+                           }}
+                           color="gray200"
+                           textColor="black"
+                        >
+                           인증번호 재전송
+                        </Button>
+                     )}
+                  </>
+               ),
+               onAccept: () => {
+                  closeModal();
+                  sendCode(ticket);
+               },
+               acceptText: res.issued ? "" : "발급",
+               onDecline: () => {
+                  setDelayScan(500);
+                  closeModal();
+               },
+               declineText: res.issued ? "닫기" : "취소",
+            });
          });
       }
    }
@@ -57,7 +94,11 @@ function Admin() {
                value={ticketId}
                onChange={(e) => setTicketId(e.target.value)}
             />
-            <AdminComponents.TicketIdSubmitButton>
+            <AdminComponents.TicketIdSubmitButton
+               onClick={() => {
+                  sendCode(ticketId);
+               }}
+            >
                전송
             </AdminComponents.TicketIdSubmitButton>
          </AdminComponents.TicketIdContainer>
@@ -97,40 +138,6 @@ function Admin() {
                </span>
             )}
          </AdminComponents.QrReaderContainer>
-         <AdminComponents.TicketInfoContainer>
-            {ticketInfo && (
-               <>
-                  <div>이름: {ticketInfo.name}</div>
-                  <div>학번: {ticketInfo.studentId}</div>
-                  <div>학과: {ticketInfo.major}</div>
-                  <div>예매번호: {ticketInfo.turn}</div>
-                  <div>
-                     발급 여부: {ticketInfo.issued ? "발급 됨" : "미발급"}
-                  </div>
-                  <div>인증 번호: {ticketInfo.code}</div>
-               </>
-            )}
-         </AdminComponents.TicketInfoContainer>
-         <Button
-            disabled={ticketInfo === null || ticketInfo.issued}
-            onClick={() => {
-               sendCode(ticketId);
-            }}
-            color="rgb(2, 98, 233)"
-            textColor="white"
-         >
-            발급하기
-         </Button>
-         <Button
-            disabled={ticketInfo === null || ticketInfo.issued}
-            onClick={() => {
-               resendVerificationCode(ticketId);
-            }}
-            color="gray200"
-            textColor="black"
-         >
-            인증번호 재전송
-         </Button>
       </AdminComponents.Container>
    );
 }

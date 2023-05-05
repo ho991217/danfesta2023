@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { useModal } from "./UseModal";
 import Login from "components/login/Login";
-import { createRef } from "react";
+import { createRef, useEffect } from "react";
 
 /**
  *
@@ -17,6 +17,13 @@ export const useLogin = () => {
    const [user, setUser] = useRecoilState(LoginInUserAtom);
    const { openModal } = useModal();
    const formRef = createRef<HTMLFormElement>();
+
+   useEffect(() => {
+      getUserInfo().then((user) => {
+         console.log(user);
+         setUser(user);
+      });
+   }, []);
 
    const openLoginModal = () => {
       openModal({
@@ -88,13 +95,9 @@ export const useLogin = () => {
       });
    };
 
-   const isLogin = () => {
-      return user.studentId.length !== 0;
-   };
+   const isLogin = () => user !== null && user.studentId.length !== 0;
 
-   const isAdmin = () => {
-      return user === null ? false : user.admin;
-   };
+   const isAdmin = () => user !== null && user.admin;
 
    // eslint-disable-next-line consistent-return
    const reissueAccessToken = async () => {

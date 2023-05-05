@@ -41,6 +41,7 @@ export const useTicket = () => {
    > => {
       try {
          const day1 = await fetchTicketDay({ day: EVENTID["1일차"] });
+         console.log(day1);
          setTicket((prev) => ({
             ...prev,
             info: [
@@ -48,6 +49,7 @@ export const useTicket = () => {
                   ...prev.info[0],
                   id: day1.id ?? 0,
                   turn: day1.turn ?? 0,
+                  distributed: day1.issued,
                },
                {
                   ...prev.info[1],
@@ -67,6 +69,7 @@ export const useTicket = () => {
                   ...prev.info[1],
                   id: day2.id ?? 0,
                   turn: day2.turn ?? 0,
+                  distributed: day2.issued,
                },
             ],
          }));
