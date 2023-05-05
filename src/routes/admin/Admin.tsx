@@ -95,7 +95,8 @@ function Admin() {
                onChange={(e) => setTicketId(e.target.value)}
             />
             <AdminComponents.TicketIdSubmitButton
-               onClick={() => {
+               onClick={(e) => {
+                  e.preventDefault();
                   sendCode(ticketId);
                }}
             >

@@ -41,7 +41,7 @@ export const useTicket = () => {
    > => {
       try {
          const day1 = await fetchTicketDay({ day: EVENTID["1일차"] });
-         console.log(day1);
+
          setTicket((prev) => ({
             ...prev,
             info: [
@@ -95,6 +95,15 @@ export const useTicket = () => {
          await axios({
             method: "POST",
             url: `/ticket/${ticketId}/permit`,
+         });
+         openModal({
+            title: "티켓 발급 성공",
+            body: "티켓 발급에 성공했습니다.",
+            declineText: "",
+            acceptText: "확인",
+            onAccept: () => {
+               closeModal();
+            },
          });
       } catch (e) {
          openErrorModal({

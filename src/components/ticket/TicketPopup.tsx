@@ -17,7 +17,7 @@ const TicketTabStyle = styled(motion.div).attrs({
    animate: { opacity: 1, translateX: "-50%" },
    exit: { opacity: 0, translateX: "-50%" },
 })`
-   position: absolute;
+   position: fixed;
    bottom: 0;
    left: 50%;
    width: calc(100% - 40px);
