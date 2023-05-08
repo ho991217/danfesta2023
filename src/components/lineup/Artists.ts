@@ -53,31 +53,31 @@ export const ARTISTS: Artist[][] = [
    [
       {
          id: 6,
-         name: "르세라핌",
+         name: "공개 예정",
          image: artist6src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 7,
-         name: "백예슬",
+         name: "공개 예정",
          image: artist7src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 8,
-         name: "디핵",
+         name: "공개 예정",
          image: artist8src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 9,
-         name: "리듬파워",
+         name: "공개 예정",
          image: artist9src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 10,
-         name: "우디",
+         name: "공개 예정",
          image: artist10src,
          eventId: EVENTID["2일차"],
       },
