@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import { TicketAtom } from "recoil/atoms/TicketAtom";
 import { useErrorModal } from "./UseErrorModal";
 import { useModal } from "./UseModal";
+import { useLogin } from "./UseLogin";
 
 export interface Verification {
    id: number;
@@ -20,10 +21,11 @@ export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);
    const { openErrorModal } = useErrorModal();
    const { openModal, closeModal } = useModal();
+   const { isLogin } = useLogin();
 
    useEffect(() => {
       // 호출시에 내 티켓이 있는지 확인
-      fetchTicketInfo();
+      if (isLogin()) fetchTicketInfo();
    }, []);
 
    const hasTicket = () => ticket.info[0].id !== 0 || ticket.info[1].id !== 0;
