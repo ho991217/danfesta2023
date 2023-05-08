@@ -82,7 +82,6 @@ function Router() {
                }
             />
          </Routes>
-
          <Modal />
          <TicketPopup />
       </BrowserRouter>

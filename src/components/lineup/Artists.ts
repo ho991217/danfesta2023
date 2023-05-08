@@ -8,6 +8,7 @@ import artist6src from "../../assets/images/artists/artist_06.png";
 import artist7src from "../../assets/images/artists/artist_07.png";
 import artist8src from "../../assets/images/artists/artist_08.png";
 import artist9src from "../../assets/images/artists/artist_09.png";
+import artist10src from "../../assets/images/artists/artist_10.png";
 
 export interface Artist {
    id: number;
@@ -16,66 +17,68 @@ export interface Artist {
    eventId: EVENTID;
 }
 
-interface Lineup {
-   [index: number]: Artist[];
-}
-
 export const ARTISTS: Artist[][] = [
    [
       {
          id: 1,
-         name: "공개 예정",
+         name: "아이콘",
          image: artist1src,
          eventId: EVENTID["1일차"],
       },
       {
          id: 2,
-         name: "공개 예정",
+         name: "효린",
          image: artist2src,
          eventId: EVENTID["1일차"],
       },
       {
          id: 3,
-         name: "공개 예정",
+         name: "비비",
          image: artist3src,
          eventId: EVENTID["1일차"],
       },
       {
          id: 4,
-         name: "공개 예정",
+         name: "DPR live",
          image: artist4src,
+         eventId: EVENTID["1일차"],
+      },
+      {
+         id: 5,
+         name: "라임라잇",
+         image: artist5src,
          eventId: EVENTID["1일차"],
       },
    ],
    [
       {
-         id: 5,
-         name: "공개 예정",
-         image: artist5src,
-         eventId: EVENTID["2일차"],
-      },
-      {
          id: 6,
-         name: "공개 예정",
+         name: "르세라핌",
          image: artist6src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 7,
-         name: "공개 예정",
+         name: "백예슬",
          image: artist7src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 8,
-         name: "공개 예정",
+         name: "디핵",
          image: artist8src,
          eventId: EVENTID["2일차"],
       },
       {
          id: 9,
-         name: "공개 예정",
+         name: "리듬파워",
          image: artist9src,
+         eventId: EVENTID["2일차"],
+      },
+      {
+         id: 10,
+         name: "우디",
+         image: artist10src,
          eventId: EVENTID["2일차"],
       },
    ],

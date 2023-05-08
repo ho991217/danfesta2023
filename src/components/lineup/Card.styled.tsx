@@ -33,6 +33,7 @@ const ArtistImage = styled.img`
    right: 50%;
    transform: translateX(50%);
    z-index: 1;
+   width: 100%;
 `;
 
 const LabelContainer = styled.div`
