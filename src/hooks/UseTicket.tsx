@@ -6,16 +6,7 @@ import { TicketAtom } from "recoil/atoms/TicketAtom";
 import { useErrorModal } from "./UseErrorModal";
 import { useModal } from "./UseModal";
 import { useLogin } from "./UseLogin";
-
-export interface Verification {
-   id: number;
-   name: string; // 이름
-   major: string; // 전공
-   studentId: string; // 학번
-   issued: boolean; // 팔찌 발급 여부
-   turn: number; // 예매번호
-   code: string; // sms 인증코드
-}
+import { Verification } from "types/Verification.type";
 
 export const useTicket = () => {
    const [ticket, setTicket] = useRecoilState(TicketAtom);

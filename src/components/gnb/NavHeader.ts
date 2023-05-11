@@ -35,6 +35,11 @@ export const NAV_HEADER: NavHeader[] = [
       subTitle: "2023 단페스타 티켓팅",
    },
    {
+      path: IRoutePath["EVENTS"],
+      title: "EVENTS",
+      subTitle: "2023 단페스타 이벤트",
+   },
+   {
       path: IRoutePath["LIVEMAP"],
       title: "BOOTH MAP",
       subTitle: "2023 단페스타 라이브맵",

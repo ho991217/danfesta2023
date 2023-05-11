@@ -13,6 +13,7 @@ import QuickdrawBar from "components/quickdraw/QuickdrawBar";
 import Notice from "./notice/Notice";
 import Ticketing from "./ticketing/Ticketing";
 import styled from "styled-components";
+import Events from "./events/Events";
 
 const Page = styled.div`
    width: 100%;
@@ -52,14 +53,7 @@ function Router() {
                   </Page>
                }
             />
-            <Route
-               path={IRoutePath["EVENTS"]}
-               element={
-                  <Page>
-                     추후 공개됩니다.<Link to="/">홈으로 돌아가기</Link>
-                  </Page>
-               }
-            />
+            <Route path={IRoutePath["EVENTS"]} element={<Events />} />
             <Route path={IRoutePath["LIVEMAP"]} element={<LiveMap />} />
             <Route path={IRoutePath["NOTICE"]} element={<Notice />} />
             <Route
