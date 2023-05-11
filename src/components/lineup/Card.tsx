@@ -12,6 +12,7 @@ function Card({ name: artistName, image: artistImage, eventId }: Artist) {
             </CardComponents.LineUpLabel>
             <CardComponents.ArtistName>{artistName}</CardComponents.ArtistName>
          </CardComponents.LabelContainer>
+
          <CardComponents.ArtistImage src={artistImage} />
       </CardComponents.Container>
    );

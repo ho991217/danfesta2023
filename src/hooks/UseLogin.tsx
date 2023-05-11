@@ -5,14 +5,6 @@ import { useModal } from "./UseModal";
 import Login from "components/login/Login";
 import { createRef, useEffect } from "react";
 
-/**
- *
- * @returns {object} user
- * @returns {function} setLogin
- * @returns {function} setAuthHeader
- * @returns {function} setLogout
- * @returns {function} setRefreshToken
- */
 export const useLogin = () => {
    const [user, setUser] = useRecoilState(LoginInUserAtom);
    const { openModal } = useModal();
@@ -20,7 +12,6 @@ export const useLogin = () => {
 
    useEffect(() => {
       getUserInfo().then((user) => {
-         console.log(user);
          setUser(user);
       });
    }, []);
@@ -37,7 +28,7 @@ export const useLogin = () => {
          },
          declineText: "회원가입",
          onDecline: () => {
-            window.location.href = "https://dkustu.com/sign-up/agreements";
+            window.location.href = `https://dkustu.com/sign-up/agreements?redirect=${window.location.href}`;
          },
       });
    };

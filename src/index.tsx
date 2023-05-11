@@ -4,7 +4,7 @@ import App from "./App";
 import axios from "axios";
 import { RecoilRoot } from "recoil";
 
-axios.defaults.baseURL = "https://dkustu.com/api";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const root = ReactDOM.createRoot(
    document.getElementById("root") as HTMLElement

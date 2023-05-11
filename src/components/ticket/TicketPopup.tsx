@@ -21,6 +21,7 @@ const TicketTabStyle = styled(motion.div).attrs({
    bottom: 0;
    left: 50%;
    width: calc(100% - 40px);
+   max-width: 500px;
    z-index: 1000;
    display: flex;
    align-items: center;

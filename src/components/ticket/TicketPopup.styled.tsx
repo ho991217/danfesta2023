@@ -18,6 +18,7 @@ const Container = styled(motion.div).attrs({
    bottom: 50%;
    left: 50%;
    width: calc(100% - 80px);
+   max-width: 300px;
    z-index: 999;
    border-radius: 5px;
    overflow: hidden;
