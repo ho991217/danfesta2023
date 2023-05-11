@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./home/Home";
 import Modal from "../components/modal/Modal";
 import Admin from "./admin/Admin";
@@ -8,11 +8,14 @@ import TicketPopup from "components/ticket/TicketPopup";
 import GlobalNavBar from "components/gnb/GlobalNavBar";
 import { IRoutePath } from "./IRoutePath";
 import LiveMap from "./live-map/LiveMap";
-import AnimatedRoutes from "./AnimatedRoutes";
 import QuickdrawBar from "components/quickdraw/QuickdrawBar";
 import Notice from "./notice/Notice";
 import Ticketing from "./ticketing/Ticketing";
 import styled from "styled-components";
+import LineUp from "./line-up/LineUp";
+import LineUpCards from "./line-up/LineUpCards";
+import { ARTISTS } from "components/lineup/Artists";
+import Footer from "components/footer/Footer";
 
 const Page = styled.div`
    width: 100%;
@@ -40,18 +43,10 @@ function Router() {
       <BrowserRouter>
          <GlobalNavBar />
          <QuickdrawBar />
-         <AnimatedRoutes />
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
             <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
-            <Route
-               path={IRoutePath["TICKETING"]}
-               element={
-                  <Page>
-                     추후 공개됩니다.<Link to="/">홈으로 돌아가기</Link>
-                  </Page>
-               }
-            />
+            <Route path={IRoutePath["TICKETING"]} element={<Ticketing />} />
             <Route
                path={IRoutePath["EVENTS"]}
                element={
@@ -72,7 +67,11 @@ function Router() {
                   )
                }
             />
-            <Route path={IRoutePath["LINEUP"] + "/*"} element={<></>} />
+            <Route path={IRoutePath["LINEUP"]} element={<LineUp />}>
+               <Route path="" element={<Navigate to="1" />} />
+               <Route path="1" element={<LineUpCards artist={ARTISTS[0]} />} />
+               <Route path="2" element={<LineUpCards artist={ARTISTS[1]} />} />
+            </Route>
             <Route
                path="*"
                element={
@@ -84,6 +83,7 @@ function Router() {
          </Routes>
          <Modal />
          <TicketPopup />
+         <Footer />
       </BrowserRouter>
    );
 }

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -10,7 +9,7 @@ const Container = styled.div`
    margin: 0 auto;
 `;
 
-const TicketThumbnail = styled(motion.img).attrs({
+const TicketThumbnail = styled.img.attrs({
    initial: { opacity: 0 },
    animate: { opacity: 1 },
    exit: { opacity: 0 },
@@ -19,6 +18,7 @@ const TicketThumbnail = styled(motion.img).attrs({
    max-width: 400px;
    height: 140px;
    border-radius: 10px;
+   object-fit: cover;
 `;
 
 const Body = styled.div`

@@ -1,7 +1,7 @@
 {
    "compilerOptions": {
       "baseUrl": "src",
-      "types": ["kakao.maps.d.ts"],
+      "types": ["kakao.maps.d.ts", "node"],
       "typeRoots": ["@types"],
       "target": "es5",
       "lib": ["dom", "dom.iterable", "esnext"],
