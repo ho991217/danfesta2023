@@ -4,8 +4,6 @@ const Container = styled.footer`
    background-color: #fff;
    width: 100%;
    height: 650px;
-   position: absolute;
-   bottom: -650px;
    left: 0;
    border-radius: 20px 20px 0 0;
    display: flex;
