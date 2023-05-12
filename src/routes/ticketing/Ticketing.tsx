@@ -21,7 +21,7 @@ function Ticketing() {
    const [canSubmit, setCanSubmit] = useState(false);
    const { authenicate } = useLogin();
    const { openErrorModal } = useErrorModal();
-   const { openModal } = useModal();
+   const { openModal, closeModal } = useModal();
    const navigate = useNavigate();
 
    useEffect(() => {
@@ -111,6 +111,7 @@ function Ticketing() {
             declineText: "",
             acceptText: "확인",
             onAccept: () => {
+               closeModal();
                navigate("/");
             },
          });
@@ -173,8 +174,9 @@ function Ticketing() {
                      <br />* 신청 후 티켓 양도 및 취소는 불가능합니다.
                      <br />* 17일, 18일 양일 중복 신청 가능하며, 1인당 예매
                      가능한 티켓의 개수는 각 일마다 1개입니다.
-                     <br />* "2023년 05월 17일" 단국존 선예매 티켓팅임을
-                     확인했습니다.
+                     <br />* "2023년 05월{" "}
+                     {selectedLabel === EVENTID["1일차"] ? "17일" : "18일"}"
+                     단국존 선예매 티켓팅임을 확인했습니다.
                   </TicketingComponent.P>
                </div>
                <h6>부정 거래 관련 방침 안내</h6>
