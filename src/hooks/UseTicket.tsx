@@ -38,6 +38,20 @@ export const useTicket = () => {
       }
    };
 
+   const getTicketTurn = async (eventId: EVENTID) => {
+      try {
+         const { data } = await axios({
+            method: "GET",
+            url: `/ticket/reservation/${eventId}`,
+            headers: {
+               Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+            },
+         });
+
+         return data.turn;
+      } catch {}
+   };
+
    const fetchTicketInfo = async (): Promise<
       string | [string, string] | null
    > => {
@@ -176,5 +190,6 @@ export const useTicket = () => {
       hasTicket,
       issueTicket,
       resendVerificationCode,
+      getTicketTurn,
    };
 };
