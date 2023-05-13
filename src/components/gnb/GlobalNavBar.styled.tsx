@@ -99,7 +99,9 @@ const DrawerContainer = styled(motion.nav).attrs({
    }
 `;
 
-const CloseButton = styled(CrossIcon)``;
+const CloseButton = styled(CrossIcon)`
+   fill: black;
+`;
 
 const UserMenuContainer = styled.div`
    height: 60px;
