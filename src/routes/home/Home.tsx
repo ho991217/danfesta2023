@@ -69,7 +69,7 @@ const SMALL_TILES: SmallTileProps[] = [
 
 function Home() {
    const { getTicketTurn } = useTicket();
-   const [turn, setTurn] = useState([-1, -1]);
+   const [turn, setTurn] = useState([undefined, undefined]);
    const [isTurnClosed, setIsTurnClosed] = useState([false, false]);
 
    useEffect(() => {
@@ -96,7 +96,7 @@ function Home() {
    return (
       <HomeComponents.Container>
          <HomeBg />
-         {turn[0] !== -1 && !isTurnClosed[0] && (
+         {turn[0] !== undefined && !isTurnClosed[0] && (
             <TurnTile>
                <p>
                   1일차 티켓 예매번호: {turn[0]}
@@ -111,7 +111,7 @@ function Home() {
                />
             </TurnTile>
          )}
-         {turn[1] !== -1 && !isTurnClosed[1] && (
+         {turn[1] !== undefined && !isTurnClosed[1] && (
             <TurnTile>
                <p>
                   2일차 티켓 예매번호: {turn[1]}
