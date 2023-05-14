@@ -1,15 +1,10 @@
 import { useModal } from "hooks/UseModal";
-import {
-   CustomOverlayMap,
-   Polygon,
-   PolygonProps,
-   Roadview,
-} from "react-kakao-maps-sdk";
+import { CustomOverlayMap, Polygon, PolygonProps } from "react-kakao-maps-sdk";
 import styled from "styled-components";
 
 const AreaLabel = styled.span`
    color: ${({ theme }) => theme.color.white};
-   font-size: 1.2rem;
+   font-size: 10px;
    font-weight: 500;
    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
@@ -23,28 +18,12 @@ interface MapAreaProps extends PolygonProps {
 }
 
 function MapArea({ path, namePos, name }: MapAreaProps) {
-   const { openModal, closeModal } = useModal();
+   const { openModal } = useModal();
 
    const handleRoadviewOpen = () => {
       openModal({
-         title: "로드뷰",
-         body: (
-            <>
-               로드뷰로 확인 해 보세요!
-               <Roadview
-                  position={{
-                     ...namePos,
-                     radius: 60,
-                  }}
-                  style={{
-                     width: "100%",
-                     aspectRatio: 1 / 1,
-                     borderRadius: 15,
-                     marginTop: "10px",
-                  }}
-               />
-            </>
-         ),
+         title: "위치",
+         body:  !isNaN(name) ? ,
          acceptText: "",
          declineText: "닫기",
       });

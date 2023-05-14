@@ -16,12 +16,6 @@ export const AREAS: MapAreaType[] = [
          { lat: 37.31959536644057, lng: 127.12768824281848 },
          { lat: 37.31981574733442, lng: 127.12803271363279 },
       ],
-      roadview: {
-         geolocation: {
-            lat: 37.31972777159703,
-            lng: 127.12814820375328,
-         },
-      },
    },
    {
       id: 2,
@@ -45,12 +39,6 @@ export const AREAS: MapAreaType[] = [
             lng: 127.12915357733004,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat: 37.32020915283521,
-            lng: 127.12876670837434,
-         },
-      },
    },
    {
       id: 3,
@@ -77,16 +65,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.1288772188396,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat: 37.32036942309956,
-            lng: 127.12845672724488,
-         },
-      },
    },
    {
       id: 6,
-      name : "1", 
+      name: "1",
       namePos: {
          lat: 37.32104209831198,
          lng: 127.12819908931127,
@@ -109,16 +91,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128206893557,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 7,
-      name : "2",
+      name: "2",
       namePos: {
          lat: 37.321006669855024,
          lng: 127.12815319568625,
@@ -141,17 +117,11 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128161707909,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
 
    {
       id: 8,
-      name : "3",
+      name: "3",
       namePos: {
          lat: 37.320970676708725,
          lng: 127.12810871140475,
@@ -159,7 +129,7 @@ export const AREAS: MapAreaType[] = [
       path: [
          {
             lat: 37.3209645225763,
-            lng: 127.128071329090,
+            lng: 127.12807132909,
          },
          {
             lat: 37.3209419632121,
@@ -174,16 +144,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128113697963,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 9,
-      name : "4",
+      name: "4",
       namePos: {
          lat: 37.320932992585526,
          lng: 127.12806563455625,
@@ -203,19 +167,13 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3209645225763,
-            lng: 127.128071329090,
+            lng: 127.12807132909,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 10,
-      name : "5",
+      name: "5",
       namePos: {
          lat: 37.32089587540435,
          lng: 127.12801903306674,
@@ -238,25 +196,19 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128026132102,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
 
    {
       id: 11,
-      name : "6",
+      name: "6",
       namePos: {
          lat: 37.320861573929,
          lng: 127.12797243639649,
       },
       path: [
          {
-            lat: 37.3208610504360,
-            lng: 127.127935768820,
+            lat: 37.320861050436,
+            lng: 127.12793576882,
          },
          {
             lat: 37.3208272282163,
@@ -271,16 +223,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127978126112,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 12,
-      name : "7",
+      name: "7",
       namePos: {
          lat: 37.3208350710529,
          lng: 127.12800482736375,
@@ -303,16 +249,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128009113521,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 13,
-      name : "8",
+      name: "8",
       namePos: {
          lat: 37.3207940888274,
          lng: 127.12788700148751,
@@ -335,16 +275,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127890579601,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 14,
-      name : "9",
+      name: "9",
       namePos: {
          lat: 37.32075921958187,
          lng: 127.12784463474576,
@@ -367,16 +301,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127853844314,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 15,
-      name : "10",
+      name: "10",
       namePos: {
          lat: 37.3207237925081,
          lng: 127.12779733120799,
@@ -399,16 +327,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127803025613,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 16,
-      name : "11",
+      name: "11",
       namePos: {
          lat: 37.3206793482529,
          lng: 127.1277563585945,
@@ -431,16 +353,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127760649399,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 17,
-      name : "12",
+      name: "12",
       namePos: {
          lat: 37.320641668562324,
          lng: 127.127709051335,
@@ -463,16 +379,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127740802936,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 18,
-      name : "13",
+      name: "13",
       namePos: {
          lat: 37.3206107526769,
          lng: 127.1276561145535,
@@ -495,16 +405,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127664622724,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 19,
-      name : "14",
+      name: "14",
       namePos: {
          lat: 37.32056407251475,
          lng: 127.127599625545,
@@ -527,16 +431,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127619437577,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 20,
-      name : "15",
+      name: "15",
       namePos: {
          lat: 37.320536514168325,
          lng: 127.127566438043,
@@ -559,16 +457,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127574248663,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 21,
-      name : "16",
+      name: "16",
       namePos: {
          lat: 37.32050221099138,
          lng: 127.12752125204726,
@@ -591,16 +483,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127526231683,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 22,
-      name : "17",
+      name: "17",
       namePos: {
          lat: 37.320475708997606,
          lng: 127.12755293789526,
@@ -623,16 +509,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127560039574,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 23,
-      name : "18",
+      name: "18",
       namePos: {
          lat: 37.320475708997606,
          lng: 127.12755293789526,
@@ -655,16 +535,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127560039574,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 24,
-      name : "19",
+      name: "19",
       namePos: {
          lat: 37.320475708997606,
          lng: 127.12755293789526,
@@ -687,16 +561,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127560039574,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 25,
-      name : "20",
+      name: "20",
       namePos: {
          lat: 37.32110414729843,
          lng: 127.12810400204799,
@@ -707,7 +575,7 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128077214758,
          },
          {
-            lat: 37.3210478740690,
+            lat: 37.321047874069,
             lng: 127.128065829485,
          },
          {
@@ -719,16 +587,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128122396588,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 26,
-      name : "21",
+      name: "21",
       namePos: {
          lat: 37.321074331173676,
          lng: 127.12807574620874,
@@ -739,7 +601,7 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128046108801,
          },
          {
-            lat: 37.3210478740690,
+            lat: 37.321047874069,
             lng: 127.128065829485,
          },
          {
@@ -751,16 +613,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128077214758,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 27,
-      name : "22",
+      name: "22",
       namePos: {
          lat: 37.32104002819422,
          lng: 127.12803055966175,
@@ -775,7 +631,7 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128020643913,
          },
          {
-            lat: 37.3210478740690,
+            lat: 37.321047874069,
             lng: 127.128065829485,
          },
          {
@@ -783,16 +639,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128046108801,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 28,
-      name : "23",
+      name: "23",
       namePos: {
          lat: 37.321006292918646,
          lng: 127.12798114333924,
@@ -800,7 +650,7 @@ export const AREAS: MapAreaType[] = [
       path: [
          {
             lat: 37.3209984485502,
-            lng: 127.127944463280,
+            lng: 127.12794446328,
          },
          {
             lat: 37.3209758953199,
@@ -815,16 +665,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127989656448,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 29,
-      name : "24",
+      name: "24",
       namePos: {
          lat: 37.320964124171525,
          lng: 127.12791902044201,
@@ -844,19 +688,13 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3209984485502,
-            lng: 127.127944463280,
+            lng: 127.12794446328,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 30,
-      name : "25",
+      name: "25",
       namePos: {
          lat: 37.32092869180123,
          lng: 127.12787665262451,
@@ -868,7 +706,7 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3209061568773,
-            lng: 127.127885075990,
+            lng: 127.12788507599,
          },
          {
             lat: 37.3209264575116,
@@ -879,16 +717,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127902083036,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 31,
-      name : "26",
+      name: "26",
       namePos: {
          lat: 37.32095406073387,
          lng: 127.127851310944,
@@ -899,28 +731,22 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127820284351,
          },
          {
-            lat: 37.3209332213410,
-            lng: 127.127854096160,
+            lat: 37.320933221341,
+            lng: 127.12785409616,
          },
          {
             lat: 37.3209534671134,
             lng: 127.127879515117,
          },
          {
-            lat: 37.3209760233720,
+            lat: 37.320976023372,
             lng: 127.127851348148,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 32,
-      name : "27",
+      name: "27",
       namePos: {
          lat: 37.32089163623145,
          lng: 127.1277729358915,
@@ -928,7 +754,7 @@ export const AREAS: MapAreaType[] = [
       path: [
          {
             lat: 37.3209017979594,
-            lng: 127.127749683840,
+            lng: 127.12774968384,
          },
          {
             lat: 37.3208679757885,
@@ -940,19 +766,13 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3209017979594,
-            lng: 127.127749683840,
+            lng: 127.12774968384,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 33,
-      name : "28",
+      name: "28",
       namePos: {
          lat: 37.3208561154807,
          lng: 127.1278123629625,
@@ -967,24 +787,18 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127800334792,
          },
          {
-            lat: 37.3208701643910,
+            lat: 37.320870164391,
             lng: 127.127839886768,
          },
          {
-            lat: 37.3208701643910,
+            lat: 37.320870164391,
             lng: 127.127839886768,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 34,
-      name : "29",
+      name: "29",
       namePos: {
          lat: 37.32082519888053,
          lng: 127.127760131115,
@@ -1007,16 +821,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127769343522,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 35,
-      name : "30",
+      name: "30",
       namePos: {
          lat: 37.320786411164875,
          lng: 127.12769589882825,
@@ -1039,16 +847,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127721341504,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 36,
-      name : "31",
+      name: "31",
       namePos: {
          lat: 37.32074872765668,
          lng: 127.12765211715276,
@@ -1071,16 +873,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127681789614,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 37,
-      name : "32",
+      name: "32",
       namePos: {
          lat: 37.32071553179025,
          lng: 127.1276245610465,
@@ -1092,7 +888,7 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3206856965396,
-            lng: 127.127613933690,
+            lng: 127.12761393369,
          },
          {
             lat: 37.3207194304497,
@@ -1103,16 +899,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127630959553,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 38,
-      name : "33",
+      name: "33",
       namePos: {
          lat: 37.320680667012596,
          lng: 127.1275779637165,
@@ -1120,7 +910,7 @@ export const AREAS: MapAreaType[] = [
       path: [
          {
             lat: 37.3206722601336,
-            lng: 127.127540577780,
+            lng: 127.12754057778,
          },
          {
             lat: 37.3206542091043,
@@ -1128,23 +918,17 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3206856965396,
-            lng: 127.127613933690,
+            lng: 127.12761393369,
          },
          {
             lat: 37.3207105022729,
             lng: 127.127588591052,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 39,
-      name : "34",
+      name: "34",
       namePos: {
          lat: 37.320642424868375,
          lng: 127.12752995047076,
@@ -1164,19 +948,13 @@ export const AREAS: MapAreaType[] = [
          },
          {
             lat: 37.3206722601336,
-            lng: 127.127540577780,
+            lng: 127.12754057778,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 40,
-      name : "35",
+      name: "35",
       namePos: {
          lat: 37.32060418194548,
          lng: 127.12748264239525,
@@ -1199,16 +977,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127492556947,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 41,
-      name : "36",
+      name: "36",
       namePos: {
          lat: 37.32057156817032,
          lng: 127.12743745925076,
@@ -1231,16 +1003,10 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127447375686,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
    },
    {
       id: 42,
-      name : "37",
+      name: "37",
       namePos: {
          lat: 37.3210189635454,
          lng: 127.128241357814,
@@ -1248,7 +1014,7 @@ export const AREAS: MapAreaType[] = [
       path: [
          {
             lat: 37.3210251894646,
-            lng: 127.128212458060,
+            lng: 127.12821245806,
          },
          {
             lat: 37.3209913580029,
@@ -1263,11 +1029,5 @@ export const AREAS: MapAreaType[] = [
             lng: 127.128237880971,
          },
       ],
-      roadview: {
-         geolocation: {
-            lat:37.32078673670255,
-            lng:127.12791589927184
-         },
-      },
-   },   
+   },
 ];

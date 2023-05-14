@@ -65,6 +65,8 @@ function LiveMap() {
 
    return (
       <Map
+         zoomable={false}
+         level={1}
          style={{
             width: "100%",
             height: "calc(100vh - 90px)",
