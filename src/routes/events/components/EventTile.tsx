@@ -4,13 +4,21 @@ import styled from "styled-components";
 const Container = styled.div`
    width: 100%;
    margin-top: 20px;
+   img {
+      background-color: #fefefe;
+   }
+   :nth-child(2) > img,
+   :nth-child(3) > img,
+   :nth-child(6) > img {
+      background-color: #0262e9;
+   }
 `;
 
 const Image = styled.img`
    width: 100%;
    aspect-ratio: 1/1;
-   background-color: ${({ theme }) => theme.color.gray300};
    border-radius: 10px;
+   object-fit: cover;
 `;
 
 const TitleText = styled.h2`
