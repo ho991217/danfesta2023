@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import GNB from "./GlobalNavBar.styled";
 import { Overlay } from "components/Overlay.styled";
 import { AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLogin } from "hooks/UseLogin";
 import { NavItems } from "./NavItems";
 import { NAV_HEADER, NavHeader } from "./NavHeader";
@@ -13,6 +13,7 @@ function GlobalNavBar() {
    const [navHeader, setNavHeader] = useState<NavHeader>(NAV_HEADER[0]);
    const { authenicate, isLogin, isAdmin, setLogout } = useLogin();
    const location = useLocation();
+   const navigate = useNavigate();
    const [isTop, setIsTop] = useState(true);
 
    const closeDrawer = () => {
@@ -45,7 +46,13 @@ function GlobalNavBar() {
 
    return (
       <GNB.Container home={isHome} top={isTop}>
-         <GNB.TitleContainer>
+         <GNB.TitleContainer
+            onClick={() => {
+               navHeader.title === "관리자 페이지"
+                  ? navigate("chan-jin")
+                  : navigate("/");
+            }}
+         >
             <GNB.Title>
                {navHeader.title} <em>{navHeader.empTitle}</em>
             </GNB.Title>

@@ -17,6 +17,7 @@ import LineUp from "./line-up/LineUp";
 import LineUpCards from "./line-up/LineUpCards";
 import { ARTISTS } from "components/lineup/Artists";
 import Footer from "components/footer/Footer";
+import Chan from "assets/images/chan.png";
 
 const Page = styled.div`
    width: 100%;
@@ -66,6 +67,10 @@ function Router() {
                <Route path="1" element={<LineUpCards artist={ARTISTS[0]} />} />
                <Route path="2" element={<LineUpCards artist={ARTISTS[1]} />} />
             </Route>
+            <Route
+               path="chan-jin"
+               element={<img src={Chan} alt="ㅋㅋ" style={{ width: "100%" }} />}
+            />
             <Route
                path="*"
                element={
