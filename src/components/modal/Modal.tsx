@@ -40,6 +40,7 @@ function Modal() {
                         <Button
                            onClick={() => {
                               onAccept?.();
+                              closeModal();
                            }}
                            color={theme.color.primary}
                            textColor={theme.color.white}
@@ -51,6 +52,7 @@ function Modal() {
                         <Button
                            onClick={() => {
                               onDecline?.();
+                              closeModal();
                            }}
                            color={theme.color.gray100}
                            textColor={theme.color.gray900}

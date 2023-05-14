@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useModal } from "hooks/UseModal";
 
 function App() {
-   const { openModal, closeModal } = useModal();
+   const { openModal } = useModal();
 
    useEffect(() => {
       const visited = sessionStorage.getItem("visited");
@@ -16,7 +16,6 @@ function App() {
             body: "Danfesta 앱은 모바일 환경에 최적화되어 있습니다. 모바일 환경에서 이용해주세요.",
             onAccept: () => {
                sessionStorage.setItem("visited", "true");
-               closeModal();
             },
             acceptText: "닫기",
             declineText: "",

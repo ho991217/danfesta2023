@@ -47,9 +47,6 @@ function MapArea({ path, namePos, name }: MapAreaProps) {
          ),
          acceptText: "",
          declineText: "닫기",
-         onDecline: () => {
-            closeModal();
-         },
       });
    };
    return (

@@ -9,9 +9,6 @@ export const useErrorModal = () => {
          body: errorMsg,
          acceptText: "",
          declineText: "닫기",
-         onDecline: () => {
-            closeModal();
-         },
       });
    };
 

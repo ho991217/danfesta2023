@@ -72,13 +72,11 @@ function Admin() {
                </>
             ),
             onAccept: () => {
-               closeModal();
                sendCode(ticketId);
             },
             acceptText: res.issued ? "" : "발급",
             onDecline: () => {
                setDelayScan(500);
-               closeModal();
             },
             declineText: res.issued ? "닫기" : "취소",
          });

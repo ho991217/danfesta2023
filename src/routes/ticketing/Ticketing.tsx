@@ -111,7 +111,6 @@ function Ticketing() {
             declineText: "",
             acceptText: "확인",
             onAccept: () => {
-               closeModal();
                navigate("/");
             },
          });
