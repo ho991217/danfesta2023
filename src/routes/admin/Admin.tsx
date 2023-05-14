@@ -8,7 +8,7 @@ import Button from "components/button/Button";
 
 function Admin() {
    const [ticketId, setTicketId] = useState("");
-   const { openModal, closeModal, isOpen } = useModal();
+   const { openModal, isOpen } = useModal();
    const { sendVerificationCode, resendVerificationCode, issueTicket } =
       useTicket();
    const [delayScan, setDelayScan] = useState<number | undefined>(500);
@@ -58,7 +58,7 @@ function Admin() {
                      <Button
                         disabled={res === null || res.issued}
                         onClick={() => {
-                           resendVerificationCode(ticketId);
+                           openScanModal(ticketId);
                         }}
                         color="gray200"
                         textColor="black"
