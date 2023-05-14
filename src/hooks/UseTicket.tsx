@@ -143,7 +143,15 @@ export const useTicket = () => {
             method: "POST",
             url: `/ticket/${ticketId}/sms`,
          });
-
+         openModal({
+            title: "인증번호 발송 성공",
+            body: "인증번호 발송에 성공했습니다.",
+            declineText: "",
+            acceptText: "확인",
+            onAccept: () => {
+               closeModal();
+            },
+         });
          return code;
       } catch (e) {
          openErrorModal({
