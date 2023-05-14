@@ -108,9 +108,6 @@ export const useTicket = () => {
             body: "티켓 발급에 성공했습니다.",
             declineText: "",
             acceptText: "확인",
-            onAccept: () => {
-               closeModal();
-            },
          });
       } catch (e) {
          openErrorModal({
@@ -139,9 +136,6 @@ export const useTicket = () => {
             body: "인증번호 발송에 성공했습니다.",
             declineText: "",
             acceptText: "확인",
-            onAccept: () => {
-               closeModal();
-            },
          });
          return code;
       } catch (e) {
@@ -162,9 +156,6 @@ export const useTicket = () => {
             title: "티켓이 없습니다",
             body: "티켓이 없습니다.",
             declineText: "",
-            onAccept: () => {
-               closeModal();
-            },
          });
       }
    };
