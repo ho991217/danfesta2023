@@ -34,14 +34,12 @@ export const useLogin = () => {
    };
 
    const authenicate = (onAuthenticated?: () => void) => {
-      getUserInfo().then((user) => {
-         if (user) {
-            setUser(user);
-            onAuthenticated?.();
-         } else {
-            openLoginModal();
-         }
-      });
+      if (user) {
+         setUser(user);
+         onAuthenticated?.();
+      } else {
+         openLoginModal();
+      }
    };
 
    const setAuthHeader = (accessToken: string) => {
