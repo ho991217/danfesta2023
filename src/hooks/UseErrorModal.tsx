@@ -5,7 +5,7 @@ export const useErrorModal = () => {
 
    const openErrorModal = ({ errorMsg }: { errorMsg: string }) => {
       openModal({
-         title: "오류가 발생했습니다.",
+         title: "알림",
          body: errorMsg,
          acceptText: "",
          declineText: "닫기",

@@ -29,6 +29,20 @@ export const useTicket = () => {
       }
    };
 
+   const getTicketTurn = async (eventId: EVENTID) => {
+      try {
+         const { data } = await axios({
+            method: "GET",
+            url: `/ticket/reservation/${eventId}`,
+            headers: {
+               Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+            },
+         });
+
+         return data.turn;
+      } catch {}
+   };
+
    const fetchTicketInfo = async (): Promise<
       string | [string, string] | null
    > => {
@@ -117,10 +131,18 @@ export const useTicket = () => {
    const resendVerificationCode = async (ticketId: string) => {
       try {
          const { code }: { code: Verification["code"] } = await axios({
-            method: "GET",
+            method: "POST",
             url: `/ticket/${ticketId}/sms`,
          });
-
+         openModal({
+            title: "인증번호 발송 성공",
+            body: "인증번호 발송에 성공했습니다.",
+            declineText: "",
+            acceptText: "확인",
+            onAccept: () => {
+               closeModal();
+            },
+         });
          return code;
       } catch (e) {
          openErrorModal({
@@ -167,5 +189,6 @@ export const useTicket = () => {
       hasTicket,
       issueTicket,
       resendVerificationCode,
+      getTicketTurn,
    };
 };

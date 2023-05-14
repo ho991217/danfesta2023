@@ -59,7 +59,7 @@ function GlobalNavBar() {
                   <Overlay onClick={closeDrawer} />
                   <GNB.DrawerContainer>
                      <GNB.UserMenuContainer>
-                        <GNB.CloseButton onClick={closeDrawer} />
+                        <GNB.CloseButton onClick={closeDrawer} fill="black" />
                         <GNB.UserMenu>
                            {isLogin() ? (
                               <button

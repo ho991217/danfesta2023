@@ -39,49 +39,51 @@ function Admin() {
          const ticket = res?.getText();
          setTicketId(ticket);
          setDelayScan(undefined);
-         sendVerificationCode(ticket).then((res) => {
-            openModal({
-               title: "티켓 정보",
-               body: (
-                  <>
-                     <AdminComponents.TicketInfoContainer>
-                        <div>이름: {res.name}</div>
-                        <div>학번: {res.studentId}</div>
-                        <div>학과: {res.major}</div>
-                        <div>예매번호: {res.turn}</div>
-                        <div>
-                           발급 여부: {res.issued ? "발급 됨" : "미발급"}
-                        </div>
-                        {res.code && <div>인증 번호: {res.code}</div>}
-                     </AdminComponents.TicketInfoContainer>
-                     {!res.issued && (
-                        <Button
-                           disabled={res === null || res.issued}
-                           onClick={() => {
-                              resendVerificationCode(ticket);
-                           }}
-                           color="gray200"
-                           textColor="black"
-                        >
-                           인증번호 재전송
-                        </Button>
-                     )}
-                  </>
-               ),
-               onAccept: () => {
-                  closeModal();
-                  sendCode(ticket);
-               },
-               acceptText: res.issued ? "" : "발급",
-               onDecline: () => {
-                  setDelayScan(500);
-                  closeModal();
-               },
-               declineText: res.issued ? "닫기" : "취소",
-            });
-         });
+         openScanModal(ticket);
       }
    }
+
+   const openScanModal = (ticketId: string) => {
+      sendVerificationCode(ticketId).then((res) => {
+         openModal({
+            title: "티켓 정보",
+            body: (
+               <>
+                  <AdminComponents.TicketInfoContainer>
+                     <div>이름: {res.name}</div>
+                     <div>학번: {res.studentId}</div>
+                     <div>학과: {res.major}</div>
+                     <div>예매번호: {res.turn}</div>
+                     <div>발급 여부: {res.issued ? "발급 됨" : "미발급"}</div>
+                     {res.code && <div>인증 번호: {res.code}</div>}
+                  </AdminComponents.TicketInfoContainer>
+                  {!res.issued && (
+                     <Button
+                        disabled={res === null || res.issued}
+                        onClick={() => {
+                           resendVerificationCode(ticketId);
+                        }}
+                        color="gray200"
+                        textColor="black"
+                     >
+                        인증번호 재전송
+                     </Button>
+                  )}
+               </>
+            ),
+            onAccept: () => {
+               closeModal();
+               sendCode(ticketId);
+            },
+            acceptText: res.issued ? "" : "발급",
+            onDecline: () => {
+               setDelayScan(500);
+               closeModal();
+            },
+            declineText: res.issued ? "닫기" : "취소",
+         });
+      });
+   };
 
    return (
       <AdminComponents.Container>
@@ -97,7 +99,7 @@ function Admin() {
             <AdminComponents.TicketIdSubmitButton
                onClick={(e) => {
                   e.preventDefault();
-                  sendCode(ticketId);
+                  openScanModal(ticketId);
                }}
             >
                전송
