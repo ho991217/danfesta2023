@@ -26,10 +26,6 @@ function Admin() {
          body: "티켓을 발급하시겠습니까?",
          onAccept: () => {
             issueTicket(ticketId);
-            closeModal();
-         },
-         onDecline: () => {
-            closeModal();
          },
       });
    };
@@ -47,6 +43,7 @@ function Admin() {
       sendVerificationCode(ticketId).then((res) => {
          openModal({
             title: "티켓 정보",
+            dontCloseOnEsc: true,
             body: (
                <>
                   <AdminComponents.TicketInfoContainer>

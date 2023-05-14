@@ -23,7 +23,7 @@ interface MapAreaProps extends PolygonProps {
 }
 
 function MapArea({ path, namePos, name }: MapAreaProps) {
-   const { openModal, closeModal } = useModal();
+   const { openModal } = useModal();
 
    const handleRoadviewOpen = () => {
       openModal({

@@ -10,8 +10,16 @@ import { useEffect } from "react";
 import { Overlay } from "components/Overlay.styled";
 
 function Modal() {
-   const { isOpen, title, body, onAccept, onDecline, declineText, acceptText } =
-      useRecoilValue(ModalAtom);
+   const {
+      isOpen,
+      title,
+      body,
+      onAccept,
+      onDecline,
+      declineText,
+      acceptText,
+      dontCloseOnEsc,
+   } = useRecoilValue(ModalAtom);
    const { closeModal } = useModal();
 
    useEffect(() => {
@@ -40,7 +48,7 @@ function Modal() {
                         <Button
                            onClick={() => {
                               onAccept?.();
-                              closeModal();
+                              !dontCloseOnEsc && closeModal();
                            }}
                            color={theme.color.primary}
                            textColor={theme.color.white}

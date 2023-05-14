@@ -108,6 +108,9 @@ export const useTicket = () => {
             body: "티켓 발급에 성공했습니다.",
             declineText: "",
             acceptText: "확인",
+            onAccept: () => {
+               closeModal();
+            },
          });
       } catch (e) {
          openErrorModal({
