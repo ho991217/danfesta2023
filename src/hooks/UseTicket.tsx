@@ -140,7 +140,7 @@ export const useTicket = () => {
    const resendVerificationCode = async (ticketId: string) => {
       try {
          const { code }: { code: Verification["code"] } = await axios({
-            method: "GET",
+            method: "POST",
             url: `/ticket/${ticketId}/sms`,
          });
 
