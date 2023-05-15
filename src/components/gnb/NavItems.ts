@@ -18,11 +18,6 @@ export const NavItems: NavItemType[] = [
       path: IRoutePath["LINEUP"],
    },
    {
-      id: 3,
-      name: "티켓팅",
-      path: IRoutePath["TICKETING"],
-   },
-   {
       id: 4,
       name: "이벤트",
       path: IRoutePath["EVENTS"],

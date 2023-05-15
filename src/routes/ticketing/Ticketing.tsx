@@ -21,7 +21,7 @@ function Ticketing() {
    const [canSubmit, setCanSubmit] = useState(false);
    const { authenicate } = useLogin();
    const { openErrorModal } = useErrorModal();
-   const { openModal, closeModal } = useModal();
+   const { openModal } = useModal();
    const navigate = useNavigate();
 
    useEffect(() => {

@@ -9,8 +9,7 @@ import Button from "components/button/Button";
 function Admin() {
    const [ticketId, setTicketId] = useState("");
    const { openModal, isOpen } = useModal();
-   const { sendVerificationCode, resendVerificationCode, issueTicket } =
-      useTicket();
+   const { sendVerificationCode, issueTicket } = useTicket();
    const [delayScan, setDelayScan] = useState<number | undefined>(500);
 
    useEffect(() => {

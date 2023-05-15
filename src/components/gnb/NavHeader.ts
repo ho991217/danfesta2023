@@ -30,11 +30,6 @@ export const NAV_HEADER: NavHeader[] = [
       subTitle: "모바일 티켓입니다.",
    },
    {
-      path: IRoutePath["TICKETING"],
-      title: "TICKETING",
-      subTitle: "2023 단페스타 티켓팅",
-   },
-   {
       path: IRoutePath["EVENTS"],
       title: "EVENTS",
       subTitle: "2023 단페스타 이벤트",

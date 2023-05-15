@@ -10,7 +10,6 @@ import { IRoutePath } from "./IRoutePath";
 import LiveMap from "./live-map/LiveMap";
 import QuickdrawBar from "components/quickdraw/QuickdrawBar";
 import Notice from "./notice/Notice";
-import Ticketing from "./ticketing/Ticketing";
 import styled from "styled-components";
 import Events from "./events/Events";
 import LineUp from "./line-up/LineUp";
@@ -48,7 +47,6 @@ function Router() {
          <Routes>
             <Route path={IRoutePath["HOME"]} element={<Home />} />
             <Route path={IRoutePath["TICKET"]} element={<Ticket />} />
-            <Route path={IRoutePath["TICKETING"]} element={<Ticketing />} />
             <Route path={IRoutePath["EVENTS"]} element={<Events />} />
             <Route path={IRoutePath["LIVEMAP"]} element={<LiveMap />} />
             <Route path={IRoutePath["NOTICE"]} element={<Notice />} />
