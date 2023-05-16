@@ -17,7 +17,4 @@ export interface MapAreaType {
    name: string;
    namePos: GeolocationType;
    path: GeolocationType[];
-   roadview: {
-      geolocation: GeolocationType;
-   };
 }
