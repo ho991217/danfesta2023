@@ -7,7 +7,8 @@ import { MARKERS } from "./Markers";
 import Marker from "./components/Marker";
 import MapArea from "./components/MapArea";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-
+import MapName from "./components/MapName";
+import { AreaNames } from "./AreaNames";
 function LiveMap() {
    const [mapInfo, setMapInfo] = useState({
       center: {
@@ -65,6 +66,8 @@ function LiveMap() {
 
    return (
       <Map
+         zoomable={false}
+         level={1}
          style={{
             width: "100%",
             height: "calc(100vh - 90px)",
@@ -86,14 +89,26 @@ function LiveMap() {
          }}
       >
          {mapInfo.tileLoaded &&
-            AREAS.map((area) => (
-               <MapArea
-                  key={area.id}
-                  path={area.path}
-                  name={area.name}
-                  namePos={area.namePos}
-               />
-            ))}
+            AREAS.map((area) => {
+               if (area.id > 5) {
+                  return (<MapName 
+                     key={area.id}
+                     path={area.path}
+                     name = {area.name}
+                     text={AreaNames[area.name]}
+                     namePos={area.namePos}
+                     />);
+               } else {
+                  return (
+                     <MapArea
+                        key={area.id}
+                        path={area.path}
+                        name={area.name}
+                        namePos={area.namePos}
+                     />
+                  );
+               }
+            })}
          {!mapInfo.isLoading && (
             <MapMarker
                position={mapInfo.center}
