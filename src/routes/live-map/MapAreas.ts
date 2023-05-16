@@ -510,7 +510,7 @@ export const AREAS: MapAreaType[] = [
          },
       ],
    },
-   {
+<!--    {
       id: 23,
       name: "18",
       namePos: {
@@ -561,7 +561,7 @@ export const AREAS: MapAreaType[] = [
             lng: 127.127560039574,
          },
       ],
-   },
+   }, -->
    {
       id: 25,
       name: "20",
