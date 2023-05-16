@@ -135,7 +135,7 @@ export const useTicket = () => {
             issued: true,
             turn: -9999,
             code: "Ticket ID에 해당하는 티켓정보가 없습니다. Ticket ID를 잘못 입력하셨거나, 조작된 QR 일 수 있습니다.",
-            eventId: 8440
+            eventId: 9999
          };
          return data;
       }
