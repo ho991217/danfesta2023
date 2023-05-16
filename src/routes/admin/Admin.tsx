@@ -49,17 +49,17 @@ function Admin() {
          let eventMessage = "";
          if(res.id === -9999) {
             eventMessage = "Ticket ID에 해당하는 티켓정보가 없습니다. Ticket ID를 잘못 입력하셨거나, 조작된 QR 일 수 있습니다.";
-         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 13) {
+         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 17) {
             if (res.eventId === 8440) {
                
             } else {
-               eventMessage = "해당 날짜의 공연티켓이 아닙니다.";
+               eventMessage = "17일 날짜의 공연티켓이 아닙니다.";
             }
-         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 16) {
+         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 18) {
             if (res.eventId === 8441) {
 
             } else {
-               eventMessage = "해당 날짜의 공연티켓이 아닙니다.";
+               eventMessage = "18일 날짜의 공연티켓이 아닙니다.";
             }
          }
 
