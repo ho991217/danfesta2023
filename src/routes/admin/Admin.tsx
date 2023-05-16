@@ -92,7 +92,6 @@ function Admin() {
                   <div>예매번호: {res.turn}</div>
                   <div>발급 여부: {res.issued ? "발급 됨" : "미발급"}</div>
                   {res.code && <div>인증 번호: {res.code}</div>}
-                  <div>이벤트 ID: {res.eventId}</div>
                </AdminComponents.TicketInfoContainer>
             ),
             onAccept: () => {
