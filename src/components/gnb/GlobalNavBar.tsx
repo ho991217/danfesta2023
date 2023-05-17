@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLogin } from "hooks/UseLogin";
 import { NavItems } from "./NavItems";
 import { NAV_HEADER, NavHeader } from "./NavHeader";
+import { useTicket } from "hooks/UseTicket";
 
 function GlobalNavBar() {
    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -15,6 +16,7 @@ function GlobalNavBar() {
    const location = useLocation();
    const navigate = useNavigate();
    const [isTop, setIsTop] = useState(true);
+   const { getTicketInfo } = useTicket();
 
    const closeDrawer = () => {
       setIsDrawerOpen(false);
@@ -43,6 +45,19 @@ function GlobalNavBar() {
          document.body.style.overflow = "auto";
       }
    }, [isDrawerOpen]);
+
+   const checkTicketId = () => {
+      const currentDate = new Date().getDate();
+      const info = getTicketInfo();
+
+      if (currentDate === new Date(2023, 4, 17).getDate() && info) {
+         alert(`티켓 번호: ${info[0].id}`);
+      } else if (currentDate === new Date(2023, 4, 18).getDate() && info) {
+         alert(`티켓 번호: ${info[1].id}`);
+      } else {
+         alert("티켓이 없습니다.");
+      }
+   };
 
    return (
       <GNB.Container home={isHome} top={isTop}>
@@ -104,6 +119,17 @@ function GlobalNavBar() {
                               </Link>
                            </GNB.NavItemLi>
                         )}
+                        <GNB.NavItemLi onClick={checkTicketId}>
+                           <div
+                              style={{
+                                 cursor: "pointer",
+                                 display: "flex",
+                                 justifyContent: "right",
+                              }}
+                           >
+                              티켓 번호
+                           </div>
+                        </GNB.NavItemLi>
                      </GNB.NavItem>
                   </GNB.DrawerContainer>
                </>

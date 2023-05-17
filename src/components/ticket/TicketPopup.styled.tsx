@@ -3,16 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as TicketBGUp } from "assets/images/ticket_bg_upper.svg";
 import { ReactComponent as TicketBGDown } from "assets/images/ticket_bg_lower.svg";
 
-const Container = styled(motion.div).attrs({
-   initial: { translate: "-50% 200%", scale: 0.5 },
-   animate: { translate: "-50% 50%", scale: 1 },
-   exit: { translate: "-50% 200%", scale: 0.5 },
-   transition: {
-      type: "spring",
-      stiffness: 260,
-      damping: 30,
-   },
-})`
+const Container = styled.div`
    aspect-ratio: 1/2;
    position: fixed;
    bottom: 50%;
@@ -25,6 +16,7 @@ const Container = styled(motion.div).attrs({
    display: flex;
    flex-direction: column;
    align-items: center;
+   transform: translate(-50%, 50%);
 `;
 
 const Garnish = styled.div<{ pos: "top" | "bottom"; looping?: boolean }>`
