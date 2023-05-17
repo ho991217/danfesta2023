@@ -6,5 +6,4 @@ export interface Verification {
    issued: boolean; // 팔찌 발급 여부
    turn: number; // 예매번호
    code: string; // sms 인증코드
-   eventId : number;
 }
