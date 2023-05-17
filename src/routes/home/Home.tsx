@@ -96,7 +96,7 @@ function Home() {
    return (
       <HomeComponents.Container>
          <HomeBg />
-         {turn[0] !== undefined && !isTurnClosed[0] && (
+         {/* {turn[0] !== undefined && !isTurnClosed[0] && (
             <TurnTile>
                <p>
                   1일차 티켓 예매번호: {turn[0]}
@@ -125,7 +125,7 @@ function Home() {
                   }}
                />
             </TurnTile>
-         )}
+         )} */}
          <TicketTile />
          <HomeComponents.TilesGrid>
             <LineUpTile />
