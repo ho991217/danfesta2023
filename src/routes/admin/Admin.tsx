@@ -5,13 +5,11 @@ import { AiOutlineExpand } from "react-icons/ai";
 import { useTicket } from "hooks/UseTicket";
 import { useModal } from "hooks/UseModal";
 import Button from "components/button/Button";
-import { Verification } from "types/Verification.type";
 
 function Admin() {
    const [ticketId, setTicketId] = useState("");
    const { openModal, isOpen } = useModal();
-   const { sendVerificationCode, resendVerificationCode, issueTicket } =
-      useTicket();
+   const { sendVerificationCode, issueTicket } = useTicket();
    const [delayScan, setDelayScan] = useState<number | undefined>(500);
 
    useEffect(() => {
@@ -41,58 +39,33 @@ function Admin() {
    }
 
    const openScanModal = (ticketId: string) => {
-      const now = new Date();
-      const currentYear = now.getFullYear();
-      const currentMonth = now.getMonth() + 1;
-      const currentDate = now.getDate();
       sendVerificationCode(ticketId).then((res) => {
-         let eventMessage = "";
-         if(res.id === -9999) {
-            eventMessage = "Ticket ID에 해당하는 티켓정보가 없습니다. Ticket ID를 잘못 입력하셨거나, 조작된 QR 일 수 있습니다.";
-         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 17) {
-            if (res.eventId === 8440) {
-               
-            } else {
-               eventMessage = "17일차 공연 티켓이 아닙니다.";
-            }
-         } else if (currentYear === 2023 && currentMonth === 5 && currentDate === 18) {
-            if (res.eventId === 8441) {
-
-            } else {
-               eventMessage = "18일차 공연 티켓이 아닙니다.";
-            }
-         }
-
-      
-         if (eventMessage) {
-            openModal({
-               title: "티켓 정보",
-               dontCloseOnEsc: true,
-               body: <div>{eventMessage}</div>,
-               onAccept: () => {
-                  // ...
-               },
-               acceptText: "",
-               onDecline: () => {
-                  // ...
-               },
-               declineText: "닫기",
-            });
-            return;
-         }
-
          openModal({
             title: "티켓 정보",
             dontCloseOnEsc: true,
             body: (
-               <AdminComponents.TicketInfoContainer>
-                  <div>이름: {res.name}</div>
-                  <div>학번: {res.studentId}</div>
-                  <div>학과: {res.major}</div>
-                  <div>예매번호: {res.turn}</div>
-                  <div>발급 여부: {res.issued ? "발급 됨" : "미발급"}</div>
-                  {res.code && <div>인증 번호: {res.code}</div>}
-               </AdminComponents.TicketInfoContainer>
+               <>
+                  <AdminComponents.TicketInfoContainer>
+                     <div>이름: {res.name}</div>
+                     <div>학번: {res.studentId}</div>
+                     <div>학과: {res.major}</div>
+                     <div>예매번호: {res.turn}</div>
+                     <div>발급 여부: {res.issued ? "발급 됨" : "미발급"}</div>
+                     {res.code && <div>인증 번호: {res.code}</div>}
+                  </AdminComponents.TicketInfoContainer>
+                  {!res.issued && (
+                     <Button
+                        disabled={res === null || res.issued}
+                        onClick={() => {
+                           openScanModal(ticketId);
+                        }}
+                        color="gray200"
+                        textColor="black"
+                     >
+                        인증번호 재전송
+                     </Button>
+                  )}
+               </>
             ),
             onAccept: () => {
                sendCode(ticketId);
