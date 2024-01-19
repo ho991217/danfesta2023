@@ -61,7 +61,7 @@ jobs:
           key: ${{ secrets.NEXT_PRIVATE_PEM_KEY }}
           proxy_host: ${{ secrets.BASTION_HOST }}
           proxy_username: ubuntu
-          proxy_key: ${{ secrets.PUBLIC_PEM_KEY }}
+          proxy_key: ${{ secrets.NEXT_PRIVATE_PEM_KEY }}
           envs: GITHUB_SHA,REPO
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/$REPO:${GITHUB_SHA::7}
