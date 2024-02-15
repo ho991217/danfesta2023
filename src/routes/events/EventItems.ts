@@ -1,7 +1,6 @@
 import Event01 from "assets/images/events/event_1.png";
 import Event02 from "assets/images/events/event_2.png";
 import Event03 from "assets/images/events/event_3.png";
-import Event04 from "assets/images/events/event_4.png";
 
 export const EventItems = [
    {
@@ -24,12 +23,5 @@ export const EventItems = [
       title: "토크 콘서트 사전 예약",
       description: "사전 예약자 한정 이벤트까지!",
       link: "https://www.instagram.com/p/CsGjrFnLZ_B/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
-   },
-   {
-      id: 4,
-      imageSrc: Event04,
-      title: "인스타 스토리 이벤트",
-      description: "인스타그램 스토리 필터 이벤트",
-      link: "https://www.instagram.com/p/CsJToefrzw5/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
    },
 ];
